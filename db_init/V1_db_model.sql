@@ -29,7 +29,7 @@ CREATE TABLE lms.book (
 	ISBN varchar(17) NOT NULL UNIQUE,
 	title varchar(45) NOT NULL,
 	year_of_publication int NOT NULL,
-	evaluation decimal,
+	evaluation decimal(3, 2),
 	genre_id bigint NOT NULL,
 	language_id bigint NOT NULL,
 	book_binding_id bigint NOT NULL,
@@ -156,7 +156,7 @@ CREATE TABLE lms.user (
 	last_name varchar(45) NOT NULL,
 	username varchar(45) NOT NULL UNIQUE,
 	date_of_birth date,
-	password_hash bytea NOT NULL,
+	password_hash text NOT NULL,
 	role_id bigint NOT NULL,
 	user_contact_id bigint NOT NULL,
 	PRIMARY KEY (user_id),
@@ -215,6 +215,7 @@ CREATE TABLE lms.access_log (
 	log_id bigserial NOT NULL,
 	"timestamp" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	user_id bigint NOT NULL,
+	ip inet NOT NULL,
 	PRIMARY KEY (log_id),
 	CONSTRAINT fk_access_log_has_user
 		FOREIGN KEY (user_id)
