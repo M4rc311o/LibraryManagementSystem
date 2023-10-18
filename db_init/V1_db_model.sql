@@ -140,14 +140,14 @@ CREATE TABLE lms.physical_book (
 CREATE TABLE lms.user_contact (
 	user_contact_id bigserial NOT NULL,
 	email varchar(45),
-	phone_number varchar(45),
+	phone_number varchar(45) NOT NULL,
 	PRIMARY KEY (user_contact_id)
 );
 
 CREATE TABLE lms.role (
 	role_id bigserial NOT NULL,
-	role varchar(45) NOT NULL UNIQUE,
-	PRIMARY KEY (role_id)
+	role varchar(20),
+ 	PRIMARY KEY (role_id)
 );
 
 CREATE TABLE lms.user (

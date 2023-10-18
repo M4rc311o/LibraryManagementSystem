@@ -1,6 +1,6 @@
 \connect "library_management_system";
 
--- genre 20
+-- genre
 INSERT INTO lms.genre (genre) VALUES ('Mystery');
 INSERT INTO lms.genre (genre) VALUES ('Thriller');
 INSERT INTO lms.genre (genre) VALUES ('Romance');
@@ -22,7 +22,7 @@ INSERT INTO lms.genre (genre) VALUES ('Cookbook');
 INSERT INTO lms.genre (genre) VALUES ('Travel');
 INSERT INTO lms.genre (genre) VALUES ('Graphic Novel');
 
--- language 11
+-- language
 INSERT INTO lms.language (language) VALUES ('English');
 INSERT INTO lms.language (language) VALUES ('Spanish');
 INSERT INTO lms.language (language) VALUES ('French');
@@ -35,11 +35,11 @@ INSERT INTO lms.language (language) VALUES ('Hebrew');
 INSERT INTO lms.language (language) VALUES ('Czech');
 INSERT INTO lms.language (language) VALUES ('Slovak');
 
--- book_binding 2
+-- book_binding
 INSERT INTO lms.book_binding (book_binding) VALUES ('Hardcover');
 INSERT INTO lms.book_binding (book_binding) VALUES ('Softcover');
 
--- literary_period 11
+-- literary_period
 INSERT INTO lms.literary_period (literary_period) VALUES ('Ancient');
 INSERT INTO lms.literary_period (literary_period) VALUES ('Medieval');
 INSERT INTO lms.literary_period (literary_period) VALUES ('Renaissance');
@@ -59,23 +59,26 @@ INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, la
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-939-780-673-9', 'Songs of the Siren', 1992, 9.69, 7, 11, 2, 1);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-529-730-058-5', 'Harmony of the Cosmos', 1934, 4.86, 13, 9, 1, 11);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-300-488-619-0', 'The Alchemist''s Daughter', 1979, 4.75, 6, 11, 1, 11);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-759-111-029-7', 'Crimson Horizons', 1905, 5.84, 14, 7, 1, 4);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-759-111-029-7', 'Crimson Horizons', 1965, 5.84, 14, 7, 1, 4);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-189-991-329-7', 'Crimson Horizons', 1965, 5.84, 14, 4, 2, 4);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-910-288-819-9', 'The Quantum Paradox', 1933, 9.97, 5, 10, 1, 10);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-486-239-652-0', 'Ghosts of the Machine', 2001, 1.66, 7, 9, 1, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-058-918-502-9', 'Chronicles of the Celestial', 1943, 7.1, 9, 7, 2, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-441-299-183-1', 'Ethereal Echoes', 1940, 2.16, 12, 10, 1, 6);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-145-281-133-1', 'Ethereal Echoes', 1940, 2.16, 12, 10, 2, 6);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-590-794-837-9', 'The Illusionist''s Dilemma', 1922, 9.73, 16, 1, 1, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-849-077-987-8', 'Sands of Eternity', 1987, 4.08, 4, 1, 2, 10);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-989-050-839-3', 'The Last Oracle', 1975, 3.33, 2, 3, 1, 8);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-741-835-650-7', 'Inferno of the Mind', 1907, 4.15, 19, 7, 2, 1);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-741-835-650-7', 'Inferno of the Mind', 2014, 4.15, 19, 7, 2, 1);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-439-182-102-3', 'The Cursed Kingdom', 1971, 3.57, 2, 2, 2, 11);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-707-136-454-6', 'Stars Beyond the Veil', 1942, 8.78, 8, 5, 2, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-725-108-252-1', 'Beneath the Silver Moon', 1932, 4.63, 14, 10, 1, 5);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-353-636-336-1', 'The Astral Traveler''s Guide', 1996, 5.6, 4, 10, 2, 8);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-482-888-552-0', 'Labyrinth of Souls', 2014, 3.56, 13, 3, 2, 3);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-708-113-555-6', 'Dreams of Another Realm', 1925, 2.82, 8, 1, 2, 11);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-111-113-555-6', 'Dreams of Another Realm', 1925, 2.82, 8, 4, 2, 11);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-865-087-862-0', 'Echoes from the Abyss', 1927, 6.37, 3, 8, 2, 4);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-696-336-207-6', 'The Enchanted Labyrinth', 1919, 8.81, 7, 2, 2, 5);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-696-336-207-6', 'The Enchanted Labyrinth', 2015, 8.81, 7, 2, 2, 5);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-836-826-249-4', 'Requiem for a Star', 2010, 6.12, 8, 11, 1, 3);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-695-553-080-4', 'The Clockwork Constellations', 1944, 0.11, 1, 8, 1, 3);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-731-876-000-4', 'Shadows of the Eternal', 1984, 2.02, 2, 7, 2, 11);
@@ -83,7 +86,9 @@ INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, la
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-556-185-427-4', 'The Alchemy of Fate', 1969, 0.32, 15, 7, 2, 1);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-459-167-969-3', 'The Oracle''s Prophecy', 1998, 9.2, 1, 11, 2, 10);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-532-055-609-4', 'The Ethereal Nexus', 1998, 9.85, 6, 9, 1, 4);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-968-712-004-2', 'Cogs and Ciphers', 1975, 1.53, 8, 7, 2, 9);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-968-702-004-2', 'Cogs and Ciphers', 1975, 1.53, 8, 7, 2, 9);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-112-712-003-2', 'Cogs and Ciphers', 1975, 1.53, 8, 7, 1, 9);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-114-718-009-2', 'Cogs and Ciphers', 1975, 1.53, 8, 1, 1, 9);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-243-900-388-1', 'The Last Magician', 1955, 8.67, 9, 11, 2, 8);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-647-168-714-1', 'The Quantum Conundrum', 1994, 0.19, 9, 9, 1, 6);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-430-421-952-5', 'Visions of the Void', 1958, 2.87, 15, 3, 2, 11);
@@ -99,6 +104,7 @@ INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, la
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-854-444-089-3', 'Chronicles of the Nebula', 1938, 7.21, 18, 11, 2, 7);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-926-356-323-2', 'Eclipse of the Mind', 2012, 6.74, 13, 4, 2, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-483-916-144-9', 'The Astral Alchemist', 1957, 9.2, 8, 10, 2, 2);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-183-216-134-1', 'The Astral Alchemist', 1957, 9.2, 8, 1, 1, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-310-487-906-2', 'The Luminous Labyrinth', 1999, 2.13, 15, 4, 1, 3);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-641-844-485-1', 'Spectral Serenity', 1956, 6.19, 11, 7, 2, 6);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-043-402-254-3', 'Harmony of the Spheres', 2008, 7.01, 6, 7, 1, 6);
@@ -110,6 +116,7 @@ INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, la
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-372-034-639-4', 'The Alchemy of Dreams', 1991, 1.23, 17, 6, 2, 5);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-419-323-203-4', 'Chronicles of the Enigma', 1990, 1.22, 6, 10, 1, 1);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-225-447-550-0', 'Memoirs of a Dreamer', 1985, 6.96, 5, 1, 1, 6);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-198-542-160-0', 'Memoirs of a Dreamer', 1985, 6.96, 5, 2, 1, 6);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-902-812-626-8', 'Journey to Self: A Memoir', 1924, 0.69, 18, 9, 2, 1);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-892-189-858-3', 'Whispers of My Soul', 2007, 3.59, 20, 11, 1, 7);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-708-891-441-7', 'Chasing Dreams: My Life Story', 1948, 7.17, 19, 4, 2, 6);
@@ -130,7 +137,7 @@ INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, lan
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Olivia', 'Clark', '1948-01-11', '2012-07-17', 9);
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Alice', 'Lee', '1951-05-26', '1993-06-28', 2);
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Emma', 'Clark', '1930-12-17', '1969-01-11', 11);
-INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Olivia', 'Hall', '2004-06-21', null, 7);
+INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Olivia', 'Hall', '1990-06-21', null, 7);
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('William', 'Young', '1966-10-04', null, 7);
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Ava', 'Brown', '1992-05-07', null, 8);
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Olivia', 'Lee', '2004-05-17', null, 5);
@@ -143,7 +150,7 @@ INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, lan
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Sophia', 'Adams', '1970-06-23', '2002-11-03', 1);
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Alice', 'Clark', '1997-04-06', null, 1);
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Emma', 'Hill', '1941-11-07', '1962-09-29', 9);
-INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Alice', 'Smith', '2004-07-03', null, 7);
+INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Alice', 'Smith', '1985-07-03', null, 7);
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('James', 'Lewis', '1969-08-15', '1997-03-03', 7);
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('James', 'Hall', '1903-02-07', '1933-07-07', 6);
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('James', 'Lee', '1956-10-25', '1981-02-25', 3);
@@ -152,6 +159,86 @@ INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, lan
 INSERT INTO lms.author (first_name, last_name, date_of_birth, date_of_death, language_id) VALUES ('Emma', 'Lee', '1928-01-23', '1954-02-02', 7);
 
 -- book_has_author
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (1, 3);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (2, 2);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (3, 4);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (4, 13);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (5, 1);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (6, 13);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (7, 33);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (8, 33);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (9, 31);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (10, 26);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (11, 35);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (12, 35);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (13, 35);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (14, 21);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (15, 14);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (16, 14);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (17, 11);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (18, 25);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (19, 25);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (20, 21);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (21, 9);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (22, 7);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (22, 16);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (23, 31);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (24, 31);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (25, 4);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (26, 34);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (26, 16);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (27, 18);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (27, 16);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (27, 29);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (28, 15);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (29, 17);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (30, 17);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (31, 22);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (32, 22);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (32, 23);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (33, 22);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (33, 23);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (34, 5);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (34, 32);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (35, 5);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (35, 32);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (36, 5);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (36, 32);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (37, 15);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (38, 34);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (39, 8);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (40, 13);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (41, 10);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (41, 29);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (42, 14);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (43, 4);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (44, 20);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (45, 17);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (46, 28);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (47, 31);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (48, 19);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (49, 4);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (50, 24);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (50, 27);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (51, 1);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (52, 1);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (53, 30);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (54, 5);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (55, 7);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (55, 18);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (56, 31);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (57, 12);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (58, 31);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (59, 31);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (60, 2);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (61, 26);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (62, 26);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (63, 8);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (64, 8);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (65, 31);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (66, 17);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (66, 29);
+INSERT INTO lms.book_has_author (book_id, author_id) VALUES (67, 25);
 
 -- city
 INSERT INTO lms.city (city) VALUES ('Chicago');
@@ -189,9 +276,72 @@ INSERT INTO lms.library (name, address_id) VALUES ('Readers', 11);
 INSERT INTO lms.library (name, address_id) VALUES ('Book Oasis', 12);
 
 -- physical_book
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('No visible defects', 1, null);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Like New', 2, 2);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (3, 3);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (4, 4);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Slight wear on cover', 5, 5);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (5, 7);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Good, minor creases', 6, 8);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Moderate wear, some markings', 7, 9);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Readable, noticeable wear', 8, 9);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (8, null);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Readable with significant wear', 9, 10);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Fragile, loose pages', 10, 11);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (11, 11);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Frayed edges, loose binding', 12, 9);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Stained pages, torn cover', 13, 10);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (13, 3);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (14, 12);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Water-damaged, pages stuck together', 15, 11);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Ripped pages, cover missing', 16, 12);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (17, 4);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (18, 1);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('No signs of wear, pristine condition', 19, 2);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Like New', 20, 7);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Slight creases', 21, 3);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Minimal wear, well-maintained', 22, 4);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Visible wear, intact binding', 23, 5);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Readable, minor markings', 24, 6);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('New', 23, 7);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Well-used, dog-eared pages', 25, 6);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Significant wear, taped cover', 26, 9);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (27, null);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Heavily worn, but readable', 28, 11);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Torn pages, taped binding', 29, 10);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Spine missing, fragile', 30, null);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Severe water damage, illegible', 31, 6);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Like New', 32, 1);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Like New', 33, 7);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (34, 4);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Minimal wear, well-maintained', 35, 4);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Visible wear, intact binding', 36, 5);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (36, 10);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (36, 7);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Readable, minor markings', 37, 9);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Well-used, dog-eared pages', 38, 7);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (39, 3);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Significant wear, taped cover', 40, 8);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Heavily worn, but readable', 41, 9);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Torn pages, taped binding', 42, 10);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (42, 6);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (42, 3);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Spine missing, fragile', 43, 11);
+INSERT INTO lms.physical_book (book_id, library_id) VALUES (44, 5);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Severe water damage, illegible', 45, 12);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Like New', 46, 1);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Mint condition, as good as new', 47, 8);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Slight wear, no visible marks', 48, 1);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Minor creases', 49, 2);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Readable, moderate wear', 50, 5);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Visible wear, intact pages', 51, 6);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Significant wear, but functional', 52, 7);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Heavily used, taped cover', 53, 8);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Yellowed pages', 54, 9);
+INSERT INTO lms.physical_book (state, book_id, library_id) VALUES ('Fragile', 55, 10);
 
 -- user_contact
-INSERT INTO lms.user_contact (email, phone_number) VALUES ('cool_dude123@example.com', '555-123-7890');
+INSERT INTO lms.user_contact (email, phone_number) VALUES (null, '555-123-7890');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('gamer_girl42@example.org', '444-234-5678');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('coding_ninja_01@example.net', '333-345-6789');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('bookworm_88@example.com', '222-456-7890');
@@ -204,7 +354,7 @@ INSERT INTO lms.user_contact (email, phone_number) VALUES ('coffee_addict@exampl
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('adventure_seeker@example.org', '234-123-4567');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('daydreamer_42@example.net', '345-234-5678');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('night_owl@example.com', '456-345-6789');
-INSERT INTO lms.user_contact (email, phone_number) VALUES ('music_producer@example.org', '567-456-7890');
+INSERT INTO lms.user_contact (email, phone_number) VALUES (null, '567-456-7890');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('globe_trotter@example.net', '678-567-8901');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('hiking_enthusiast@example.com', '789-678-9012');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('coding_guru@example.org', '890-789-0123');
@@ -218,31 +368,31 @@ INSERT INTO lms.user_contact (email, phone_number) VALUES ('skydiver_007@example
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('art_lover_123@example.com', '678-667-8901');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('movie_buff@example.org', '789-778-9012');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('gaming_enthusiast@example.net', '890-889-0123');
-INSERT INTO lms.user_contact (email, phone_number) VALUES ('travel_junkie@example.com', '901-900-1234');
+INSERT INTO lms.user_contact (email, phone_number) VALUES (null, '901-900-1234');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('fitness_freak@example.org', '012-011-2345');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('nature_lover_22@example.net', '123-122-3456');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('photography_lover@example.com', '234-233-4567');
-INSERT INTO lms.user_contact (email, phone_number) VALUES ('wanderlust_88@example.org', '345-344-5678');
+INSERT INTO lms.user_contact (email, phone_number) VALUES (null, '345-344-5678');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('dreamer_42@example.net', '456-455-6789');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('adventure_seeker_007@example.com', '567-566-7890');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('coding_nerd_123@example.org', '678-677-8901');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('travel_enthusiast@example.com', '111-111-2222');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('coding_mastermind@example.org', '222-222-3333');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('gourmet_cook@example.net', '333-333-4444');
-INSERT INTO lms.user_contact (email, phone_number) VALUES ('fitness_buff@example.com', '444-444-5555');
+INSERT INTO lms.user_contact (email, phone_number) VALUES (null, '444-444-5555');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('music_maestro@example.org', '555-555-6666');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('book_lover@example.net', '666-666-7777');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('nature_observer@example.com', '777-777-8888');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('coding_whizkid@example.org', '888-888-9999');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('adventure_seeker_22@example.net', '999-999-0000');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('coffee_addict_22@example.com', '000-000-1111');
-INSERT INTO lms.user_contact (email, phone_number) VALUES ('fitness_guru_22@example.org', '111-111-2222');
+INSERT INTO lms.user_contact (email, phone_number) VALUES (null, '111-111-2222');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('music_lover_22@example.net', '222-222-3333');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('bookworm_22@example.com', '333-333-4444');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('coding_pro_22@example.org', '444-444-5555');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('traveler_22@example.net', '555-555-6666');
 INSERT INTO lms.user_contact (email, phone_number) VALUES ('art_enthusiast_22@example.com', '666-666-7777');
-INSERT INTO lms.user_contact (email, phone_number) VALUES ('movie_buff_22@example.org', '777-777-8888');
+INSERT INTO lms.user_contact (email, phone_number) VALUES (null, '777-777-8888');
 
 
 -- role
@@ -307,7 +457,50 @@ INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_h
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id, user_contact_id) VALUES ('Sofia', 'Hill', 'sofiah', '2002-09-29', lms.crypt('sofiah2002', lms.gen_salt('bf', 6)), 3, 52);
 
 -- loaned_book
+INSERT INTO lms.loaned_book (user_id, physical_book_id, is_returned, issue_date, due_date, library_id) VALUES (26, 34, True, '2023-09-01', '2023-10-01', 2);
+INSERT INTO lms.loaned_book (user_id, physical_book_id, is_returned, issue_date, due_date, library_id) VALUES (25, 1, True, '2023-09-03', '2023-10-03', 1);
+INSERT INTO lms.loaned_book (user_id, physical_book_id, is_returned, issue_date, due_date, library_id) VALUES (14, 4, True, '2023-09-11', '2023-10-11', 3);
+INSERT INTO lms.loaned_book (user_id, physical_book_id, is_returned, issue_date, due_date, library_id) VALUES (24, 10, False, '2023-09-16', '2023-10-16', 5);
+INSERT INTO lms.loaned_book (user_id, physical_book_id, is_returned, issue_date, due_date, library_id) VALUES (31, 9, True, '2023-09-21', '2023-10-21', 2);
+INSERT INTO lms.loaned_book (user_id, physical_book_id, is_returned, issue_date, due_date, library_id) VALUES (12, 41, True, '2023-10-01', '2023-11-01', 6);
+INSERT INTO lms.loaned_book (user_id, physical_book_id, is_returned, issue_date, due_date, library_id) VALUES (13, 31, False, '2023-10-12', '2023-11-12', 7);
+INSERT INTO lms.loaned_book (user_id, physical_book_id, is_returned, issue_date, due_date, library_id) VALUES (34, 1, False, '2023-10-15', '2023-11-15', 8);
+INSERT INTO lms.loaned_book (user_id, physical_book_id, is_returned, issue_date, due_date, library_id) VALUES (41, 34, False, '2023-10-16', '2023-11-16', 3);
 
 -- book_request
+INSERT INTO lms.book_request (ISBN, title, user_id) VALUES ('978-112-233-445-5', 'Into the Unknown', 6);
+INSERT INTO lms.book_request (ISBN, title, user_id) VALUES ('978-998-877-665-4', 'The Last Frontier', 14);
+INSERT INTO lms.book_request (ISBN, title, user_id) VALUES ('978-667-788-990-0', 'Under the Moonlight', 34);
+INSERT INTO lms.book_request (ISBN, title, user_id) VALUES ('978-554-433-221-1', 'Whispers in the Dark', 22);
+INSERT INTO lms.book_request (ISBN, title, user_id) VALUES ('978-443-322-110-0', 'A Tale of Two Worlds', 14);
+INSERT INTO lms.book_request (ISBN, title, user_id) VALUES ('978-778-899-001-1', 'The Enchanted Forest', 35);
+INSERT INTO lms.book_request (ISBN, title, user_id) VALUES ('978-112-223-435-5', 'Through the Looking Glass', 4);
+INSERT INTO lms.book_request (ISBN, title, user_id) VALUES ('978-334-455-667-7', 'Beneath the Surface', 7);
+INSERT INTO lms.book_request (ISBN, title, user_id) VALUES ('978-112-133-545-5', 'The Secret Garden', 4);
+INSERT INTO lms.book_request (ISBN, title, user_id) VALUES ('978-665-544-332-2', 'The Lost City', 36);
 
 -- access_log
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-01 17:56:13', 39, '192.168.1.23');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-02 18:50:28', 6, '192.168.1.18');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-06 19:47:55', 14, '192.168.1.18');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-07 22:05:18', 9, '192.168.1.11');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-08 11:30:59', 18, '192.168.1.21');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-11 13:28:40', 16, '192.168.1.11');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-14 05:22:47', 29, '192.168.1.23');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-14 11:17:55', 7, '192.168.1.20');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-17 22:40:02', 16, '192.168.1.19');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-19 07:11:56', 10, '192.168.1.11');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-23 10:15:31', 15, '192.168.1.18');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-25 03:50:27', 27, '192.168.1.13');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-29 04:05:44', 17, '192.168.1.20');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-08-29 16:40:33', 8, '192.168.1.20');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-09-04 13:14:37', 25, '192.168.1.25');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-09-12 16:38:09', 11, '192.168.1.16');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-09-15 09:35:42', 5, '192.168.1.6');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-09-19 14:20:47', 13, '192.168.1.16');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-09-20 20:40:59', 34, '192.168.1.26');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-09-25 08:55:33', 12, '192.168.1.15');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-09-28 09:48:58', 46, '192.168.1.25');
+INSERT INTO lms.access_log ("timestamp", user_id, ip) VALUES ('2023-09-28 14:22:10', 4, '192.168.1.5');
+INSERT INTO lms.access_log (user_id, ip) VALUES (32, '192.168.1.35');
+INSERT INTO lms.access_log (user_id, ip) VALUES (37, '192.168.1.35');
