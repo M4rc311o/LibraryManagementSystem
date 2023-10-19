@@ -246,18 +246,18 @@ INSERT INTO lms.city (city) VALUES ('Boston');
 INSERT INTO lms.city (city) VALUES ('Atlanta');
 
 -- address
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Maplewood Avenue', 245, 1);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Oakridge Drive', 23, 1);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Greenwood Street', 127, 2);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Magnolia Avenue', 89, 2);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Redwood Drive', 158, 2);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Willow Street', 45, 1);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Sycamore Lane', 39, 3);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Cedar Street', 192, 4);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Rustic Road', 5, 3);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Heritage Lane', 1, 3);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Riverview Avenue', 201, 5);
-INSERT INTO lms.address (street, num_of_house, city_id) VALUES ('Goldenrod Street', 230, 2);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Maplewood Avenue', 245, 1);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Oakridge Drive', 23, 1);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Greenwood Street', 127, 2);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Magnolia Avenue', 89, 2);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Redwood Drive', 158, 2);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Willow Street', 45, 1);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Sycamore Lane', 39, 3);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Cedar Street', 192, 4);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Rustic Road', 5, 3);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Heritage Lane', 1, 3);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Riverview Avenue', 201, 5);
+INSERT INTO lms.address (street, house_num, city_id) VALUES ('Goldenrod Street', 230, 2);
 
 -- library
 INSERT INTO lms.library (name, address_id) VALUES ('Chapter & Verse', 1);
@@ -343,6 +343,7 @@ INSERT INTO lms.role (role) VALUES ('administrator');
 INSERT INTO lms.role (role) VALUES ('student');
 INSERT INTO lms.role (role) VALUES ('user');
 INSERT INTO lms.role (role) VALUES ('librarian');
+INSERT INTO lms.role (role) VALUES ('guest');
 
 -- user
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('John', 'Doe', 'johndoe123', '1990-05-15', lms.crypt('johndoe1231990', lms.gen_salt('bf', 6)), 3);
@@ -397,6 +398,7 @@ INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_h
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Liam', 'Stewart', 'liams', '2017-10-21', lms.crypt('liams2017', lms.gen_salt('bf', 6)), 4);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Sophia', 'Miller', 'sophiam', '1991-07-07', lms.crypt('sophiam1991', lms.gen_salt('bf', 6)), 4);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Sofia', 'Hill', 'sofiah', '2002-09-29', lms.crypt('sofiah2002', lms.gen_salt('bf', 6)), 4);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('', '', 'guest', null, lms.crypt('guest', lms.gen_salt('bf', 6)), 5);
 
 -- user_contact
 INSERT INTO lms.user_contact (email, phone_number, user_id) VALUES (null, '555-123-7890', 1);

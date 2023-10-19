@@ -147,7 +147,7 @@ CREATE TABLE lms.user (
 	last_name varchar(45) NOT NULL,
 	username varchar(45) NOT NULL UNIQUE,
 	date_of_birth date,
-	password_hash text NOT NULL,
+	password_hash bytea NOT NULL,
 	role_id bigint NOT NULL,
 	PRIMARY KEY (user_id),
 	CONSTRAINT fk_user_has_role
@@ -213,7 +213,6 @@ CREATE TABLE lms.access_log (
 	log_id bigserial NOT NULL,
 	"timestamp" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	user_id bigint NOT NULL,
-	ip inet NOT NULL,
 	PRIMARY KEY (log_id),
 	CONSTRAINT fk_access_log_has_user
 		FOREIGN KEY (user_id)
