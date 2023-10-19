@@ -46,6 +46,19 @@ services:
         /entrypoint.sh
     networks:
       - bds-project-net
+  bds-flyway:
+    image: 'flyway/flyway:9.22-alpine'
+    container_name: bds-flyway
+    restart: unless-stopped
+    depends_on:
+      bds-postgres-db:
+        condition: service_healthy
+    command: '-configFiles=/flyway/conf/flyway.conf migrate'
+    volumes:
+      - './flyway:/flyway/sql'
+      - './flyway.conf:/flyway/conf/flyway.conf'
+    networks:
+      - bds-project-net
 volumes:
   postgres-data:
     name: postgres-data

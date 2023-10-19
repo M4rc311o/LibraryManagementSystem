@@ -1,5 +1,3 @@
-\connect "library_management_system";
-
 CREATE TABLE lms.genre (
 	genre_id bigserial NOT NULL,
 	genre varchar(45) NOT NULL UNIQUE,

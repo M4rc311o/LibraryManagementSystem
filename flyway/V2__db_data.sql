@@ -1,5 +1,3 @@
-\connect "library_management_system";
-
 -- genre
 INSERT INTO lms.genre (genre) VALUES ('Mystery');
 INSERT INTO lms.genre (genre) VALUES ('Thriller');
@@ -398,7 +396,7 @@ INSERT INTO lms.user_contact (email, phone_number) VALUES (null, '777-777-8888')
 -- role
 INSERT INTO lms.role (role) VALUES ('administrator');
 INSERT INTO lms.role (role) VALUES ('student');
-INSERT INTO lms.role (role) VALUES ('customer');
+INSERT INTO lms.role (role) VALUES ('user');
 INSERT INTO lms.role (role) VALUES ('librarian');
 INSERT INTO lms.role (role) VALUES ('guest');
 
