@@ -135,13 +135,6 @@ CREATE TABLE lms.physical_book (
 		ON UPDATE RESTRICT
 );
 
-CREATE TABLE lms.user_contact (
-	user_contact_id bigserial NOT NULL,
-	email varchar(45),
-	phone_number varchar(45) NOT NULL,
-	PRIMARY KEY (user_contact_id)
-);
-
 CREATE TABLE lms.role (
 	role_id bigserial NOT NULL,
 	role varchar(20),
@@ -156,18 +149,25 @@ CREATE TABLE lms.user (
 	date_of_birth date,
 	password_hash text NOT NULL,
 	role_id bigint NOT NULL,
-	user_contact_id bigint NOT NULL,
 	PRIMARY KEY (user_id),
 	CONSTRAINT fk_user_has_role
 		FOREIGN KEY (role_id)
 		REFERENCES lms.role (role_id)
 		ON DELETE RESTRICT
-		ON UPDATE RESTRICT,
-	CONSTRAINT fk_user_has_user_contact
-		FOREIGN KEY (user_contact_id)
-		REFERENCES lms.user_contact (user_contact_id)
-		ON DELETE RESTRICT
 		ON UPDATE RESTRICT
+);
+
+CREATE TABLE lms.user_contact (
+	user_contact_id bigserial NOT NULL,
+	user_id bigint NOT NULL,
+	email varchar(45),
+	phone_number varchar(45) NOT NULL,
+	PRIMARY KEY (user_contact_id),
+	CONSTRAINT fk_contact_has_user
+		FOREIGN KEY (user_id)
+		REFERENCES lms.user (user_id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
 );
 
 CREATE TABLE lms.loaned_book (
@@ -206,7 +206,7 @@ CREATE TABLE lms.book_request (
 		FOREIGN KEY (user_id)
 		REFERENCES lms.user (user_id)
 		ON DELETE CASCADE
-		ON UPDATE RESTRICT
+		ON UPDATE CASCADE
 );
 
 CREATE TABLE lms.access_log (
