@@ -343,7 +343,7 @@ INSERT INTO lms.role (role) VALUES ('administrator');
 INSERT INTO lms.role (role) VALUES ('student');
 INSERT INTO lms.role (role) VALUES ('user');
 INSERT INTO lms.role (role) VALUES ('librarian');
-INSERT INTO lms.role (role) VALUES ('guest');
+INSERT INTO lms.role (role) VALUES ('child');
 
 -- user
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('John', 'Doe', 'johndoe123', '1990-05-15', lms.crypt('johndoe1231990', lms.gen_salt('bf', 6)), 3);
@@ -373,32 +373,31 @@ INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_h
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Aiden', 'Price', 'aidenp', '1977-06-26', lms.crypt('aidenp1977', lms.gen_salt('bf', 6)), 3);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Scarlett', 'Stewart', 'scarletts', '2004-08-18', lms.crypt('scarletts2004', lms.gen_salt('bf', 6)), 3);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Mason', 'Ross', 'masonr', '1976-11-10', lms.crypt('masonr1976', lms.gen_salt('bf', 6)), 3);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Zoe', 'Ward', 'zoew', '2005-03-03', lms.crypt('zoew2005', lms.gen_salt('bf', 6)), 3);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Zoe', 'Ward', 'zoew', '2005-03-03', lms.crypt('zoew2005', lms.gen_salt('bf', 6)), 5);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Elijah', 'Martin', 'elijahm', '1975-07-27', lms.crypt('elijahm1975', lms.gen_salt('bf', 6)), 3);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Avery', 'Fisher', 'averyf', '2006-01-20', lms.crypt('averyf2006', lms.gen_salt('bf', 6)), 3);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Avery', 'Fisher', 'averyf', '2006-01-20', lms.crypt('averyf2006', lms.gen_salt('bf', 6)), 5);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Amelia', 'Bryant', 'ameliab', '1974-04-14', lms.crypt('ameliab1974', lms.gen_salt('bf', 6)), 2);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Charlotte', 'Grant', 'charlotteg', '2007-06-07', lms.crypt('charlotteg2007', lms.gen_salt('bf', 6)), 3);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Charlotte', 'Grant', 'charlotteg', '2007-06-07', lms.crypt('charlotteg2007', lms.gen_salt('bf', 6)), 5);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Noah', 'Simmons', 'noahs', '1973-09-30', lms.crypt('noahs1973', lms.gen_salt('bf', 6)), 3);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Liam', 'Butler', 'liamb', '2008-11-23', lms.crypt('liamb2008', lms.gen_salt('bf', 6)), 2);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Liam', 'Butler', 'liamb', '2008-11-23', lms.crypt('liamb2008', lms.gen_salt('bf', 6)), 5);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Grace', 'Turner', 'gracet', '1972-02-15', lms.crypt('gracet1972', lms.gen_salt('bf', 6)), 3);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Emma', 'Mitchell', 'emmam', '2009-05-10', lms.crypt('emmam2009', lms.gen_salt('bf', 6)), 2);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Emma', 'Mitchell', 'emmam', '2009-05-10', lms.crypt('emmam2009', lms.gen_salt('bf', 6)), 5);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Lucas', 'Griffin', 'lucasg', '1971-08-04', lms.crypt('lucasg1971', lms.gen_salt('bf', 6)), 2);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Olivia', 'Foster', 'oliviaf', '2010-10-29', lms.crypt('oliviaf2010', lms.gen_salt('bf', 6)), 3);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Olivia', 'Foster', 'oliviaf', '2010-10-29', lms.crypt('oliviaf2010', lms.gen_salt('bf', 6)), 5);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Ethan', 'Ward', 'ethanw', '1970-01-22', lms.crypt('ethanw1970', lms.gen_salt('bf', 6)), 3);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Sophia', 'Lynch', 'sophial', '2011-04-17', lms.crypt('sophial2011', lms.gen_salt('bf', 6)), 3);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Lily', 'Roberts', 'lilyr', '2012-06-12', lms.crypt('lilyr2012', lms.gen_salt('bf', 6)), 3);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Sophia', 'Lynch', 'sophial', '2011-04-17', lms.crypt('sophial2011', lms.gen_salt('bf', 6)), 5);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Lily', 'Roberts', 'lilyr', '2012-06-12', lms.crypt('lilyr2012', lms.gen_salt('bf', 6)), 5);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Aiden', 'Larson', 'aidenl', '1969-09-05', lms.crypt('aidenl1969', lms.gen_salt('bf', 6)), 2);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Zoe', 'Harrison', 'zoeh', '2013-12-28', lms.crypt('zoeh2013', lms.gen_salt('bf', 6)), 3);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Zoe', 'Harrison', 'zoeh', '2013-12-28', lms.crypt('zoeh2013', lms.gen_salt('bf', 6)), 5);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Elijah', 'Thompson', 'elijaht', '1968-03-21', lms.crypt('elijaht1968', lms.gen_salt('bf', 6)), 3);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Ava', 'Phillips', 'avap', '2014-07-14', lms.crypt('avap2014', lms.gen_salt('bf', 6)), 3);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Jackson', 'Morgan', 'jackm', '2015-09-17', lms.crypt('jackm2015', lms.gen_salt('bf', 6)), 2);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Ava', 'Phillips', 'avap', '2014-07-14', lms.crypt('avap2014', lms.gen_salt('bf', 6)), 5);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Jackson', 'Morgan', 'jackm', '2015-09-17', lms.crypt('jackm2015', lms.gen_salt('bf', 6)), 5);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Sofia', 'Rogers', 'sofiar', '1967-12-10', lms.crypt('sofiar1967', lms.gen_salt('bf', 6)), 3);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Lucas', 'Adams', 'lucasa', '2016-03-05', lms.crypt('lucasa2016', lms.gen_salt('bf', 6)), 1);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Lucas', 'Adams', 'lucasa', '1989-03-05', lms.crypt('lucasa2016', lms.gen_salt('bf', 6)), 1);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Mia', 'Carter', 'miac', '1966-06-28', lms.crypt('miac1966', lms.gen_salt('bf', 6)), 4);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Liam', 'Stewart', 'liams', '2017-10-21', lms.crypt('liams2017', lms.gen_salt('bf', 6)), 4);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Liam', 'Stewart', 'liams', '1992-10-21', lms.crypt('liams2017', lms.gen_salt('bf', 6)), 4);
 INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Sophia', 'Miller', 'sophiam', '1991-07-07', lms.crypt('sophiam1991', lms.gen_salt('bf', 6)), 4);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Sofia', 'Hill', 'sofiah', '2002-09-29', lms.crypt('sofiah2002', lms.gen_salt('bf', 6)), 4);
-INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('', '', 'guest', null, lms.crypt('guest', lms.gen_salt('bf', 6)), 5);
+INSERT INTO lms.user (first_name, last_name, username, date_of_birth, password_hash, role_id) VALUES ('Sofia', 'Hill', 'sofiah', '1989-09-29', lms.crypt('sofiah2002', lms.gen_salt('bf', 6)), 4);
 
 -- user_contact
 INSERT INTO lms.user_contact (email, phone_number, user_id) VALUES (null, '555-123-7890', 1);
