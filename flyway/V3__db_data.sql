@@ -36,6 +36,9 @@ INSERT INTO lms.language (language) VALUES ('Slovak');
 -- book_binding
 INSERT INTO lms.book_binding (book_binding) VALUES ('Hardcover');
 INSERT INTO lms.book_binding (book_binding) VALUES ('Softcover');
+INSERT INTO lms.book_binding (book_binding) VALUES ('Spiral-bound');
+INSERT INTO lms.book_binding (book_binding) VALUES ('Leatherbound');
+INSERT INTO lms.book_binding (book_binding) VALUES ('Sewn');
 
 -- literary_period
 INSERT INTO lms.literary_period (literary_period) VALUES ('Ancient');
@@ -52,37 +55,37 @@ INSERT INTO lms.literary_period (literary_period) VALUES ('Contemporary');
 
 -- book
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-580-066-374-1', 'The Enigma Chronicles', 1979, 6.35, 9, 8, 2, 6);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-778-899-989-1', 'Serpents and Shadows', 1993, 2.94, 4, 10, 1, 9);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-778-899-989-1', 'Serpents and Shadows', 1993, 2.94, 4, 10, 3, 9);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-227-681-208-8', 'The Clockmaker''s Secret', 1935, 2.73, 7, 10, 1, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-939-780-673-9', 'Songs of the Siren', 1992, 9.69, 7, 11, 2, 1);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-529-730-058-5', 'Harmony of the Cosmos', 1934, 4.86, 13, 9, 1, 11);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-300-488-619-0', 'The Alchemist''s Daughter', 1979, 4.75, 6, 11, 1, 11);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-759-111-029-7', 'Crimson Horizons', 1965, 5.84, 14, 7, 1, 4);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-189-991-329-7', 'Crimson Horizons', 1965, 5.84, 14, 4, 2, 4);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-189-991-329-7', 'Crimson Horizons', 1965, 5.84, 14, 4, 4, 4);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-910-288-819-9', 'The Quantum Paradox', 1933, 9.97, 5, 10, 1, 10);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-486-239-652-0', 'Ghosts of the Machine', 2001, 1.66, 7, 9, 1, 2);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-486-239-652-0', 'Ghosts of the Machine', 2001, 1.66, 7, 9, 5, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-058-918-502-9', 'Chronicles of the Celestial', 1943, 7.1, 9, 7, 2, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-441-299-183-1', 'Ethereal Echoes', 1940, 2.16, 12, 10, 1, 6);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-145-281-133-1', 'Ethereal Echoes', 1940, 2.16, 12, 10, 2, 6);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-590-794-837-9', 'The Illusionist''s Dilemma', 1922, 9.73, 16, 1, 1, 2);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-590-794-837-9', 'The Illusionist''s Dilemma', 1922, 9.73, 16, 1, 3, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-849-077-987-8', 'Sands of Eternity', 1987, 4.08, 4, 1, 2, 10);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-989-050-839-3', 'The Last Oracle', 1975, 3.33, 2, 3, 1, 8);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-741-835-650-7', 'Inferno of the Mind', 2014, 4.15, 19, 7, 2, 1);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-741-835-650-7', 'Inferno of the Mind', 2014, 4.15, 19, 7, 5, 1);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-439-182-102-3', 'The Cursed Kingdom', 1971, 3.57, 2, 2, 2, 11);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-707-136-454-6', 'Stars Beyond the Veil', 1942, 8.78, 8, 5, 2, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-725-108-252-1', 'Beneath the Silver Moon', 1932, 4.63, 14, 10, 1, 5);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-353-636-336-1', 'The Astral Traveler''s Guide', 1996, 5.6, 4, 10, 2, 8);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-353-636-336-1', 'The Astral Traveler''s Guide', 1996, 5.6, 4, 10, 4, 8);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-482-888-552-0', 'Labyrinth of Souls', 2014, 3.56, 13, 3, 2, 3);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-708-113-555-6', 'Dreams of Another Realm', 1925, 2.82, 8, 1, 2, 11);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-111-113-555-6', 'Dreams of Another Realm', 1925, 2.82, 8, 4, 2, 11);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-865-087-862-0', 'Echoes from the Abyss', 1927, 6.37, 3, 8, 2, 4);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-111-113-555-6', 'Dreams of Another Realm', 1925, 2.82, 8, 4, 4, 11);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-865-087-862-0', 'Echoes from the Abyss', 1927, 6.37, 3, 8, 3, 4);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-696-336-207-6', 'The Enchanted Labyrinth', 2015, 8.81, 7, 2, 2, 5);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-836-826-249-4', 'Requiem for a Star', 2010, 6.12, 8, 11, 1, 3);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-695-553-080-4', 'The Clockwork Constellations', 1944, 0.11, 1, 8, 1, 3);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-695-553-080-4', 'The Clockwork Constellations', 1944, 0.11, 1, 8, 3, 3);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-731-876-000-4', 'Shadows of the Eternal', 1984, 2.02, 2, 7, 2, 11);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-826-284-282-4', 'Specters of the Past', 1986, 4.29, 17, 3, 1, 1);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-556-185-427-4', 'The Alchemy of Fate', 1969, 0.32, 15, 7, 2, 1);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-459-167-969-3', 'The Oracle''s Prophecy', 1998, 9.2, 1, 11, 2, 10);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-459-167-969-3', 'The Oracle''s Prophecy', 1998, 9.2, 1, 11, 5, 10);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-532-055-609-4', 'The Ethereal Nexus', 1998, 9.85, 6, 9, 1, 4);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-968-702-004-2', 'Cogs and Ciphers', 1975, 1.53, 8, 7, 2, 9);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-112-712-003-2', 'Cogs and Ciphers', 1975, 1.53, 8, 7, 1, 9);
@@ -93,7 +96,7 @@ INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, la
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-163-232-495-6', 'Sorcery and Stardust', 1964, 3.02, 3, 11, 2, 2);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-686-407-361-4', 'The Enigmatic Empire', 2009, 6.0, 13, 1, 1, 10);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-314-336-359-7', 'Beyond the Veil of Time', 1976, 4.08, 16, 8, 1, 11);
-INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-374-774-194-6', 'The Cosmic Kaleidoscope', 1949, 9.38, 13, 6, 1, 10);
+INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-374-774-194-6', 'The Cosmic Kaleidoscope', 1949, 9.38, 13, 6, 4, 10);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-996-240-705-9', 'The Arcane Archive', 2000, 3.58, 12, 11, 2, 5);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-100-879-997-5', 'The Illusionist''s Mirage', 1988, 0.63, 8, 8, 1, 10);
 INSERT INTO lms.book (ISBN, title, year_of_publication, evaluation, genre_id, language_id, book_binding_id, literary_period_id) VALUES ('978-572-098-250-6', 'Realm of the Lost Souls', 1976, 7.56, 13, 4, 1, 3);
