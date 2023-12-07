@@ -1,0 +1,14 @@
+#loginBanner {
+   -fx-background-color: #8ABDE3;
+}
+
+#gradLoginBanner {
+   -fx-background-color: linear-gradient(to bottom, #8ABDE3, #F4F4F4 75%);
+}
+
+#loginButton {
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CFCFCF;
+}

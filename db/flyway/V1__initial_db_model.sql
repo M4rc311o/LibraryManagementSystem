@@ -1,28 +1,28 @@
-CREATE TABLE lms.genre (
+CREATE TABLE bds.genre (
 	genre_id bigserial NOT NULL,
 	genre varchar(45) NOT NULL UNIQUE,
 	PRIMARY KEY (genre_id)
 );
 
-CREATE TABLE lms.language (
+CREATE TABLE bds.language (
 	language_id bigserial NOT NULL,
 	language varchar(45) NOT NULL UNIQUE,
 	PRIMARY KEY (language_id)
 );
 
-CREATE TABLE lms.book_binding (
+CREATE TABLE bds.book_binding (
 	book_binding_id bigserial NOT NULL,
 	book_binding varchar(45) NOT NULL UNIQUE,
 	PRIMARY KEY (book_binding_id)
 );
 
-CREATE TABLE lms.literary_period (
+CREATE TABLE bds.literary_period (
 	literary_period_id bigserial NOT NULL,
 	literary_period varchar(45) NOT NULL UNIQUE,
 	PRIMARY KEY (literary_period_id)
 );
 
-CREATE TABLE lms.book (
+CREATE TABLE bds.book (
 	book_id bigserial NOT NULL,
 	ISBN varchar(17) NOT NULL UNIQUE,
 	title varchar(45) NOT NULL,
@@ -35,27 +35,27 @@ CREATE TABLE lms.book (
 	PRIMARY KEY (book_id),
 	CONSTRAINT fk_book_has_genre
 		FOREIGN KEY (genre_id)
-		REFERENCES lms.genre (genre_id)
+		REFERENCES bds.genre (genre_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT,
 	CONSTRAINT fk_book_has_language
 		FOREIGN KEY (language_id)
-		REFERENCES lms.language (language_id)
+		REFERENCES bds.language (language_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT,
 	CONSTRAINT fk_book_has_book_binding
 		FOREIGN KEY (book_binding_id)
-		REFERENCES lms.book_binding (book_binding_id)
+		REFERENCES bds.book_binding (book_binding_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT,
 	CONSTRAINT fk_book_has_literary_period
 		FOREIGN KEY (literary_period_id)
-		REFERENCES lms.literary_period (literary_period_id)
+		REFERENCES bds.literary_period (literary_period_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT
 );
 
-CREATE TABLE lms.author (
+CREATE TABLE bds.author (
 	author_id bigserial NOT NULL,
 	first_name varchar(45) NOT NULL,
 	last_name varchar(45) NOT NULL,
@@ -65,34 +65,34 @@ CREATE TABLE lms.author (
 	PRIMARY KEY (author_id),
 	CONSTRAINT fk_author_has_language
 		FOREIGN KEY (language_id)
-		REFERENCES lms.language (language_id)
+		REFERENCES bds.language (language_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT
 );
 
-CREATE TABLE lms.book_has_author (
+CREATE TABLE bds.book_has_author (
 	book_id bigint NOT NULL,
 	author_id bigint NOT NULL,
 	PRIMARY KEY (book_id, author_id),
 	CONSTRAINT fk_book_has_author_book_id
 		FOREIGN KEY (book_id)
-		REFERENCES lms.book (book_id)
+		REFERENCES bds.book (book_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT,
 	CONSTRAINT fk_book_has_author_author_id
 		FOREIGN KEY (author_id)
-		REFERENCES lms.author (author_id)
+		REFERENCES bds.author (author_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT
 );
 
-CREATE TABLE lms.city (
+CREATE TABLE bds.city (
 	city_id bigserial NOT NULL,
 	city varchar(45) NOT NULL UNIQUE,
 	PRIMARY KEY (city_id)
 );
 
-CREATE TABLE lms.address (
+CREATE TABLE bds.address (
 	address_id bigserial NOT NULL,
 	street varchar(45) NOT NULL,
 	num_of_house int NOT NULL,
@@ -100,24 +100,24 @@ CREATE TABLE lms.address (
 	PRIMARY KEY (address_id),
 	CONSTRAINT fk_address_has_city
 		FOREIGN KEY (city_id)
-		REFERENCES lms.city (city_id)
+		REFERENCES bds.city (city_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT
 );
 
-CREATE TABLE lms.library (
+CREATE TABLE bds.library (
 	library_id bigserial NOT NULL,
 	name varchar(45) NOT NULL,
 	address_id bigint NOT NULL,
 	PRIMARY KEY (library_id),
 	CONSTRAINT fk_library_has_address
 		FOREIGN KEY (address_id)
-		REFERENCES lms.address (address_id)
+		REFERENCES bds.address (address_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT
 );
 
-CREATE TABLE lms.physical_book (
+CREATE TABLE bds.physical_book (
 	physical_book_id bigserial NOT NULL,
 	state text NOT NULL DEFAULT 'New',
 	book_id bigint NOT NULL,
@@ -125,39 +125,39 @@ CREATE TABLE lms.physical_book (
 	PRIMARY KEY (physical_book_id),
 	CONSTRAINT fk_physical_book_has_book
 		FOREIGN KEY (book_id)
-		REFERENCES lms.book (book_id)
+		REFERENCES bds.book (book_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT,
 	CONSTRAINT fk_physical_book_has_library
 		FOREIGN KEY (library_id)
-		REFERENCES lms.library (library_id)
+		REFERENCES bds.library (library_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT
 );
 
-CREATE TABLE lms.role (
+CREATE TABLE bds.role (
 	role_id bigserial NOT NULL,
 	role varchar(20),
  	PRIMARY KEY (role_id)
 );
 
-CREATE TABLE lms.user (
+CREATE TABLE bds.user (
 	user_id bigserial NOT NULL,
 	first_name varchar(45) NOT NULL,
 	last_name varchar(45) NOT NULL,
 	username varchar(45) NOT NULL UNIQUE,
 	date_of_birth date,
-	password_hash bytea NOT NULL,
+	password_hash varchar(255) NOT NULL,
 	role_id bigint NOT NULL,
 	PRIMARY KEY (user_id),
 	CONSTRAINT fk_user_has_role
 		FOREIGN KEY (role_id)
-		REFERENCES lms.role (role_id)
+		REFERENCES bds.role (role_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT
 );
 
-CREATE TABLE lms.user_contact (
+CREATE TABLE bds.user_contact (
 	user_contact_id bigserial NOT NULL,
 	user_id bigint NOT NULL,
 	email varchar(45),
@@ -165,38 +165,38 @@ CREATE TABLE lms.user_contact (
 	PRIMARY KEY (user_contact_id),
 	CONSTRAINT fk_contact_has_user
 		FOREIGN KEY (user_id)
-		REFERENCES lms.user (user_id)
+		REFERENCES bds.user (user_id)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
 
-CREATE TABLE lms.loaned_book (
+CREATE TABLE bds.loaned_book (
 	loaned_book_id bigserial NOT NULL,
-	user_id bigint NOT NULL,
+	user_id bigint,
 	physical_book_id bigint NOT NULL,
 	is_returned bool NOT NULL DEFAULT FALSE,
-	issue_date date NOT	NULL,
-	due_date date NOT NULL,
+	issue_date date NOT	NULL DEFAULT CURRENT_DATE,
+	due_date date NOT NULL DEFAULT (CURRENT_DATE + INTERVAL '1 month'),
 	library_id bigint NOT NULL,
 	PRIMARY KEY (loaned_book_id),
 	CONSTRAINT fk_loaned_book_has_user
 		FOREIGN KEY (user_id)
-		REFERENCES lms.user (user_id)
-		ON DELETE RESTRICT
-		ON UPDATE RESTRICT,
+		REFERENCES bds.user (user_id)
+		ON DELETE SET NULL
+		ON UPDATE SET NULL,
 	CONSTRAINT fk_loaned_book_has_physical_book
 		FOREIGN KEY (physical_book_id)
-		REFERENCES lms.physical_book (physical_book_id)
+		REFERENCES bds.physical_book (physical_book_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT,
 	CONSTRAINT fk_loaned_book_has_library
 		FOREIGN KEY (library_id)
-		REFERENCES lms.library (library_id)
+		REFERENCES bds.library (library_id)
 		ON DELETE RESTRICT
 		ON UPDATE RESTRICT
 );
 
-CREATE TABLE lms.book_request (
+CREATE TABLE bds.book_request (
 	book_request_id bigserial NOT NULL,
 	ISBN varchar(17) NOT NULL,
 	title varchar(45) NOT NULL,
@@ -204,19 +204,19 @@ CREATE TABLE lms.book_request (
 	PRIMARY KEY (book_request_id),
 	CONSTRAINT fk_book_request_has_user
 		FOREIGN KEY (user_id)
-		REFERENCES lms.user (user_id)
+		REFERENCES bds.user (user_id)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
 
-CREATE TABLE lms.access_log (
+CREATE TABLE bds.access_log (
 	log_id bigserial NOT NULL,
 	"timestamp" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	user_id bigint NOT NULL,
 	PRIMARY KEY (log_id),
 	CONSTRAINT fk_access_log_has_user
 		FOREIGN KEY (user_id)
-		REFERENCES lms.user (user_id)
-		ON DELETE RESTRICT
-		ON UPDATE RESTRICT
+		REFERENCES bds.user (user_id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
 );

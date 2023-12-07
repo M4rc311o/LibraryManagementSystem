@@ -1,8 +1,8 @@
-ALTER TABLE lms.access_log
+ALTER TABLE bds.access_log
 ADD ip inet NOT NULL;
 
-ALTER TABLE lms.address
+ALTER TABLE bds.address
 RENAME COLUMN num_of_house TO house_num;
 
-ALTER TABLE lms.user
+ALTER TABLE bds.user
 ALTER COLUMN password_hash TYPE text;
