@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.bds.controllers.LoginController">
+<VBox id="loginBanner" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.bds.controllers.LoginController">
    <children>
-      <StackPane id="loginBanner" prefHeight="159.0" prefWidth="343.0">
+      <StackPane prefHeight="159.0" prefWidth="343.0">
          <children>
             <ImageView fx:id="lmsLogoImageView" fitHeight="144.0" fitWidth="144.0">
                <image>

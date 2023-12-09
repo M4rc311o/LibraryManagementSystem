@@ -17,14 +17,12 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Login.fxml"));
-            VBox mainStage = loader.load();
-
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/Login.fxml"));
             primaryStage.setTitle("LMS");
-            Scene scene = new Scene(mainStage);
+            Scene scene = new Scene(fxmlLoader.load());
             setUserAgentStylesheet(STYLESHEET_MODENA);
-            String myStyle = getClass().getResource("css/customStyle.css").toExternalForm();
-            scene.getStylesheets().add(myStyle);
+            String customStyle = getClass().getResource("css/customStyle.css").toExternalForm();
+            scene.getStylesheets().add(customStyle);
 
             primaryStage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
             primaryStage.setScene(scene);

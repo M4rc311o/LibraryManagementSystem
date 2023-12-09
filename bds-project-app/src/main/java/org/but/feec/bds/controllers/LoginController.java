@@ -2,11 +2,17 @@ package org.but.feec.bds.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
+import org.but.feec.bds.App;
 import org.but.feec.bds.data.UserRepository;
 import org.but.feec.bds.exceptions.DataAccessException;
+import org.but.feec.bds.exceptions.ExceptionHandler;
 import org.but.feec.bds.exceptions.ResourceNotFoundException;
 import org.but.feec.bds.services.AuthService;
 import org.controlsfx.validation.ValidationSupport;
@@ -14,11 +20,11 @@ import org.controlsfx.validation.Validator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-    private AuthService authService;
 
     @FXML
     public Label usernameLabel;
@@ -32,6 +38,10 @@ public class LoginController {
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordPasswordField;
+
+    private AuthService authService;
+    UserRepository userRepository;
+    ValidationSupport validation;
 
     @FXML
     private void initialize() {
@@ -53,12 +63,12 @@ public class LoginController {
     }
 
     private void initializeServices() {
-        UserRepository userRepository = new UserRepository();
+        userRepository = new UserRepository();
         authService = new AuthService(userRepository);
     }
 
     private void initializeValidations() {
-        ValidationSupport validation = new ValidationSupport();
+        validation = new ValidationSupport();
         validation.registerValidator(usernameTextField, Validator.createEmptyValidator("The username must not be empty."));
         validation.registerValidator(passwordPasswordField, Validator.createEmptyValidator("The password must not be empty."));
         signInButton.disableProperty().bind(validation.invalidProperty());
@@ -77,6 +87,7 @@ public class LoginController {
             if (authenticated) {
                 //TODO: OPEN USER STAGE; PROBABLY SWITCH BASED ON ROLE
                 showValidCredentialsDialog();
+                showDefaultView();
             }
             else {
                 showInvalidCredentialsDialog();
@@ -99,7 +110,7 @@ public class LoginController {
         Alert alertDialog = new Alert(Alert.AlertType.CONFIRMATION);
         alertDialog.setTitle("Authenticated");
         alertDialog.setHeaderText("You were successfully logged in");
-        alertDialog.setContentText("Click OK and continue");
+        alertDialog.setContentText("Click OK to continue");
 
         Optional<ButtonType> result = alertDialog.showAndWait();
 
@@ -108,6 +119,25 @@ public class LoginController {
         }
         else {
             System.out.println("cancel clicked");
+        }
+    }
+
+    private void showDefaultView() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/Default.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Library management system");
+            stage.setScene(scene);
+
+            Stage stageOld = (Stage) signInButton.getScene().getWindow();
+            stageOld.close();
+
+            stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
+            stage.show();
+        }
+        catch (IOException e) {
+            ExceptionHandler.handleException(e);
         }
     }
 }
