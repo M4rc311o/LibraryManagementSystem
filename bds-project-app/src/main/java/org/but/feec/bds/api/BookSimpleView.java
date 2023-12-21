@@ -12,64 +12,62 @@ public class BookSimpleView {
     private StringProperty language = new SimpleStringProperty();
 
     public String getTitle() {
-        return titleProperty().get();
-    }
-
-    public void setTitle(String title) {
-        this.titleProperty().setValue(title);
-    }
-
-
-    public String getIsbn() {
-        return isbnProperty().get();
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbnProperty().setValue(isbn);
-    }
-
-    public int getYear() {
-        return yearProperty().get();
-    }
-
-    public void setYear(int year) {
-        this.yearProperty().setValue(year);
-    }
-
-    public float getEvaluation() {
-        return evaluationProperty().get();
-    }
-
-    public void setEvaluation(float evaluation) {
-        this.evaluationProperty().setValue(evaluation);
-    }
-
-    public String getLanguage() {
-        return languageProperty().get();
-    }
-
-    public void setLanguage(String language) {
-        this.languageProperty().setValue(language);
+        return title.get();
     }
 
     public StringProperty titleProperty() {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title.set(title);
+    }
+
+    public String getIsbn() {
+        return isbn.get();
+    }
 
     public StringProperty isbnProperty() {
         return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn.set(isbn);
+    }
+
+    public int getYear() {
+        return year.get();
     }
 
     public IntegerProperty yearProperty() {
         return year;
     }
 
+    public void setYear(int year) {
+        this.year.set(year);
+    }
+
+    public float getEvaluation() {
+        return evaluation.get();
+    }
+
     public FloatProperty evaluationProperty() {
         return evaluation;
     }
 
+    public void setEvaluation(float evaluation) {
+        this.evaluation.set(evaluation);
+    }
+
+    public String getLanguage() {
+        return language.get();
+    }
+
     public StringProperty languageProperty() {
         return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language.set(language);
     }
 }

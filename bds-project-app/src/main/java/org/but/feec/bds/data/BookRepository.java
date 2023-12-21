@@ -20,7 +20,8 @@ public class BookRepository {
                      "SELECT title, isbn, year_of_publication, evaluation, language " +
                              "FROM bds.book b " +
                              "LEFT JOIN bds.language l " +
-                             "ON b.language_id = l.language_id;");
+                             "ON b.language_id = l.language_id;"
+             );
              ResultSet resultSet = preparedStatement.executeQuery();
         ) {
             List<BookSimpleView> bookSimpleViews = new ArrayList<>();
@@ -30,7 +31,7 @@ public class BookRepository {
             return bookSimpleViews;
         }
         catch (SQLException e) {
-            throw new DataAccessException("Book simple view can not be loaded.", e);
+            throw new DataAccessException("Books simple view could not be loaded.", e);
         }
     }
 

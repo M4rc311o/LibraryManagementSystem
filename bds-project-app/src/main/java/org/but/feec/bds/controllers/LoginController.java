@@ -125,7 +125,7 @@ public class LoginController {
     private void showDefaultView() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/Default.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Scene scene = new Scene(fxmlLoader.load(), 930, 610);
             Stage stage = new Stage();
             stage.setTitle("Library management system");
             stage.setScene(scene);

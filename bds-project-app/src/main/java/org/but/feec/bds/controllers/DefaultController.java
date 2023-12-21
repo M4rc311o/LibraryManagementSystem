@@ -6,20 +6,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.but.feec.bds.api.BookRequestCreateView;
 import org.but.feec.bds.api.BookSimpleView;
-import org.but.feec.bds.data.BookRepository;
-import org.but.feec.bds.data.BookRequestRepository;
-import org.but.feec.bds.data.UserRepository;
-import org.but.feec.bds.data.UserSession;
-import org.but.feec.bds.services.BookRequestService;
-import org.but.feec.bds.services.BookService;
-import org.but.feec.bds.services.SessionService;
+import org.but.feec.bds.api.LibrarySimpleView;
+import org.but.feec.bds.api.LoanSimpleView;
+import org.but.feec.bds.data.*;
+import org.but.feec.bds.services.*;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,13 +35,13 @@ public class DefaultController {
     @FXML
     private TableColumn<BookSimpleView, String> bookTitleColumn;
     @FXML
-    private TableColumn<BookSimpleView, String > bookIsbnColumn;
+    private TableColumn<BookSimpleView, String> bookIsbnColumn;
     @FXML
-    private TableColumn<BookSimpleView, Integer > bookYearColumn;
+    private TableColumn<BookSimpleView, Integer> bookYearColumn;
     @FXML
-    private TableColumn<BookSimpleView, Float > bookEvaluationColumn;
+    private TableColumn<BookSimpleView, Float> bookEvaluationColumn;
     @FXML
-    private TableColumn<BookSimpleView, String > bookLanguageColumn;
+    private TableColumn<BookSimpleView, String> bookLanguageColumn;
     @FXML
     private TableView<BookSimpleView> booksTableView;
 
@@ -61,6 +60,38 @@ public class DefaultController {
     @FXML
     private Button submitButton;
 
+    @FXML
+    private Tab librariesTab;
+    @FXML
+    private TableColumn<LibrarySimpleView, Long> libraryIdColumn;
+    @FXML
+    private TableColumn<LibrarySimpleView, String> libraryNameColumn;
+    @FXML
+    private TableColumn<LibrarySimpleView, String> libraryCountryColumn;
+    @FXML
+    private TableColumn<LibrarySimpleView, String> libraryCityColumn;
+    @FXML
+    private TableColumn<LibrarySimpleView, String> libraryStreetColumn;
+    @FXML
+    private TableColumn<LibrarySimpleView, Integer> libraryHouseNumberColumn;
+    @FXML
+    private TableView<LibrarySimpleView> librariesTableView;
+
+    @FXML
+    private Tab loansTab;
+    @FXML
+    private TableColumn<LoanSimpleView, Long> loanIdColumn;
+    @FXML
+    private TableColumn<LoanSimpleView, String> loanBookNameColumn;
+    @FXML
+    private TableColumn<LoanSimpleView, Date> loanIssueDateColumn;
+    @FXML
+    private TableColumn<LoanSimpleView, Date> loanDueDateColumn;
+    @FXML
+    private TableColumn<LoanSimpleView, Boolean> loanReturnedColumn;
+    @FXML
+    private TableView<LoanSimpleView> loansTableView;
+
     private BookService bookService;
     private BookRepository bookRepository;
     private ValidationSupport validationBookRequest;
@@ -68,12 +99,25 @@ public class DefaultController {
     private BookRequestRepository bookRequestRepository;
     private SessionService sessionService;
     private UserRepository userRepository;
+    private LibraryRepository libraryRepository;
+    private LibraryService libraryService;
+    private LoanRepository loanRepository;
+    private LoanService loanService;
 
     @FXML
     private void initialize() {
         initializeServices();
 
         usernameLabel.setText(sessionService.getCurrentUsername());
+
+        loanIdColumn.setCellValueFactory(new PropertyValueFactory<LoanSimpleView, Long>("id"));
+        loanBookNameColumn.setCellValueFactory(new PropertyValueFactory<LoanSimpleView, String>("bookName"));
+        loanIssueDateColumn.setCellValueFactory(new PropertyValueFactory<LoanSimpleView, Date>("issueDate"));
+        loanDueDateColumn.setCellValueFactory(new PropertyValueFactory<LoanSimpleView, Date>("dueDate"));
+        loanReturnedColumn.setCellValueFactory(new PropertyValueFactory<LoanSimpleView, Boolean>("returned"));
+        ObservableList<LoanSimpleView> observableLoanSimpleViews = initializeLoansData();
+        loansTableView.setItems(observableLoanSimpleViews);
+        loansTableView.getSortOrder().add(loanIdColumn);
 
         bookTitleColumn.setCellValueFactory(new PropertyValueFactory<BookSimpleView, String>("title"));
         bookIsbnColumn.setCellValueFactory(new PropertyValueFactory<BookSimpleView, String>("isbn"));
@@ -84,6 +128,16 @@ public class DefaultController {
         booksTableView.setItems(observableBookSimpleViews);
         booksTableView.getSortOrder().add(bookTitleColumn);
 
+        libraryIdColumn.setCellValueFactory(new PropertyValueFactory<LibrarySimpleView, Long>("id"));
+        libraryNameColumn.setCellValueFactory(new PropertyValueFactory<LibrarySimpleView, String>("name"));
+        libraryCountryColumn.setCellValueFactory(new PropertyValueFactory<LibrarySimpleView, String>("country"));
+        libraryCityColumn.setCellValueFactory(new PropertyValueFactory<LibrarySimpleView, String>("city"));
+        libraryStreetColumn.setCellValueFactory(new PropertyValueFactory<LibrarySimpleView, String>("street"));
+        libraryHouseNumberColumn.setCellValueFactory(new PropertyValueFactory<LibrarySimpleView, Integer>("houseNumber"));
+        ObservableList<LibrarySimpleView> observableLibrariesViews = initializeLibrariesData();
+        librariesTableView.setItems(observableLibrariesViews);
+        librariesTableView.getSortOrder().add(libraryIdColumn);
+
         initializeValidations();
 
         logger.info("DefaultController initialized");
@@ -93,10 +147,19 @@ public class DefaultController {
         bookRepository = new BookRepository();
         bookRequestRepository = new BookRequestRepository();
         userRepository = new UserRepository();
+        libraryRepository = new LibraryRepository();
+        loanRepository = new LoanRepository();
 
         bookService = new BookService(bookRepository);
         bookRequestService = new BookRequestService(bookRequestRepository);
         sessionService = new SessionService(userRepository, UserSession.getSession());
+        libraryService = new LibraryService(libraryRepository);
+        loanService = new LoanService(loanRepository);
+    }
+
+    private ObservableList<LoanSimpleView> initializeLoansData() {
+        List<LoanSimpleView> loanSimpleViews = loanService.getLoansSimpleViewForUser(sessionService.getCurrentUserId());
+        return FXCollections.observableArrayList(loanSimpleViews);
     }
 
     private ObservableList<BookSimpleView> initializeBooksData() {
@@ -104,11 +167,25 @@ public class DefaultController {
         return FXCollections.observableArrayList(bookSimpleViews);
     }
 
+    private ObservableList<LibrarySimpleView> initializeLibrariesData() {
+        List<LibrarySimpleView> librarySimpleViews = libraryService.getLibrariesSimpleView();
+        return FXCollections.observableArrayList(librarySimpleViews);
+    }
+
     private void initializeValidations() {
         validationBookRequest = new ValidationSupport();
         validationBookRequest.registerValidator(isbnBookRequestTextField, Validator.createEmptyValidator("ISBN must not be empty"));
         validationBookRequest.registerValidator(titleBookRequestTextField, Validator.createEmptyValidator("Title must not be empty"));
         submitButton.disableProperty().bind(validationBookRequest.invalidProperty());
+    }
+
+    public void signOutActionHandler(ActionEvent event) {
+        handleSignOut();
+    }
+
+    public void handleSignOut(){
+        Stage stage = (Stage) signOutButton.getScene().getWindow();
+        stage.close();
     }
 
     public void submitBookRequestActionHandler(ActionEvent event) {
