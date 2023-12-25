@@ -2,8 +2,6 @@ package org.but.feec.bds.api;
 
 import javafx.beans.property.*;
 
-import java.math.BigDecimal;
-
 public class BookSimpleView {
     private StringProperty title = new SimpleStringProperty();
     private StringProperty isbn = new SimpleStringProperty();

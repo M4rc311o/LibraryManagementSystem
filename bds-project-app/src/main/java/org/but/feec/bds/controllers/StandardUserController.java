@@ -22,8 +22,8 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
-public class DefaultController {
-    private static final Logger logger = LoggerFactory.getLogger(DefaultController.class);
+public class StandardUserController {
+    private static final Logger logger = LoggerFactory.getLogger(StandardUserController.class);
 
     @FXML
     public Label usernameLabel;
@@ -140,7 +140,7 @@ public class DefaultController {
 
         initializeValidations();
 
-        logger.info("DefaultController initialized");
+        logger.info("StandardUserController initialized");
     }
 
     private void initializeServices() {
@@ -183,7 +183,7 @@ public class DefaultController {
         handleSignOut();
     }
 
-    public void handleSignOut(){
+    private void handleSignOut() {
         Stage stage = (Stage) signOutButton.getScene().getWindow();
         stage.close();
     }
@@ -192,7 +192,7 @@ public class DefaultController {
         handleSubmitBookRequest();
     }
 
-    public void handleSubmitBookRequest() {
+    private void handleSubmitBookRequest() {
         String title = titleBookRequestTextField.getText();
         String isbn = isbnBookRequestTextField.getText();
         long userId = sessionService.getCurrentUserId();

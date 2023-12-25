@@ -11,10 +11,12 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.but.feec.bds.App;
 import org.but.feec.bds.data.UserRepository;
+import org.but.feec.bds.data.UserSession;
 import org.but.feec.bds.exceptions.DataAccessException;
 import org.but.feec.bds.exceptions.ExceptionHandler;
 import org.but.feec.bds.exceptions.ResourceNotFoundException;
 import org.but.feec.bds.services.AuthService;
+import org.but.feec.bds.services.SessionService;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 import org.slf4j.Logger;
@@ -40,8 +42,9 @@ public class LoginController {
     private PasswordField passwordPasswordField;
 
     private AuthService authService;
-    UserRepository userRepository;
-    ValidationSupport validation;
+    private UserRepository userRepository;
+    private ValidationSupport validation;
+    private SessionService sessionService;
 
     @FXML
     private void initialize() {
@@ -64,7 +67,9 @@ public class LoginController {
 
     private void initializeServices() {
         userRepository = new UserRepository();
+
         authService = new AuthService(userRepository);
+        sessionService = new SessionService(userRepository, UserSession.getSession());
     }
 
     private void initializeValidations() {
@@ -85,9 +90,25 @@ public class LoginController {
         try {
             boolean authenticated = authService.authenticate(username, password);
             if (authenticated) {
-                //TODO: OPEN USER STAGE; PROBABLY SWITCH BASED ON ROLE
                 showValidCredentialsDialog();
-                showDefaultView();
+                switch (sessionService.getCurrentRole()){
+                    case "librarian":
+                        showLibrarianView();
+                        break;
+                    case "basic":
+                        showStandardUserView();
+                        break;
+                    case "child":
+                        showStandardUserView();
+                        break;
+                    case "student":
+                        showStandardUserView();
+                        break;
+                    case "administrator":
+                        showAdministratorView();
+                        break;
+                }
+
             }
             else {
                 showInvalidCredentialsDialog();
@@ -122,9 +143,9 @@ public class LoginController {
         }
     }
 
-    private void showDefaultView() {
+    private void showStandardUserView() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/Default.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/StandardUser.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 930, 610);
             Stage stage = new Stage();
             stage.setTitle("Library management system");
@@ -139,5 +160,28 @@ public class LoginController {
         catch (IOException e) {
             ExceptionHandler.handleException(e);
         }
+    }
+
+    private void showLibrarianView() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/Librarian.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 930, 610);
+            Stage stage = new Stage();
+            stage.setTitle("Library management system");
+            stage.setScene(scene);
+
+            Stage stageOld = (Stage) signInButton.getScene().getWindow();
+            stageOld.close();
+
+            stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
+            stage.show();
+        }
+        catch (IOException e) {
+            ExceptionHandler.handleException(e);
+        }
+    }
+
+    private void showAdministratorView() {
+
     }
 }
