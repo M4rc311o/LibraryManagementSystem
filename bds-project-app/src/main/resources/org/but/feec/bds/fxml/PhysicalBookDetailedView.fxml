@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="502.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <GridPane layoutX="22.0" layoutY="64.0" prefHeight="316.0" prefWidth="356.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="64.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="269.39996337890625" minWidth="10.0" prefWidth="109.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="449.4000244140625" minWidth="10.0" prefWidth="161.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="40.0" prefHeight="40.0" />
+                <RowConstraints maxHeight="30.0" minHeight="40.0" prefHeight="40.0" />
+                <RowConstraints maxHeight="30.0" minHeight="40.0" prefHeight="40.0" />
+            <RowConstraints maxHeight="30.0" minHeight="130.0" prefHeight="0.0" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="idLabel" text="ID:">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="titleLabel" text="Title:" GridPane.rowIndex="1">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="isbnLabel" text="ISBN:" GridPane.rowIndex="2">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="libraryLabel" text="Library:" GridPane.rowIndex="3">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="loanedLabel" text="Loaned:" GridPane.rowIndex="4">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="issueDateLabel" text="Issue date:" GridPane.rowIndex="5">
+                    <GridPane.margin>
+                        <Insets />
+                    </GridPane.margin>
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="dueDateLabel" text="Due date:" GridPane.rowIndex="6">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="titleValueLabel" text="Title" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="idValueLabel" text="Id" GridPane.columnIndex="1" />
+                <Label fx:id="isbnValueLabel" text="Isbn" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="libraryValueLabel" text="Library" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label fx:id="issueDateValueLabel" text="Issue date" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label fx:id="dueDateValueLabel" text="Due date" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="conditionLabel" text="Condition:" GridPane.rowIndex="7">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="conditionTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <CheckBox fx:id="loanedCheckBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            </children>
+        </GridPane>
+          <Label fx:id="titleLabel" layoutX="22.0" layoutY="14.0" prefHeight="61.0" prefWidth="157.0" text="Physical Book" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0">
+              <font>
+                  <Font name="System Bold" size="21.0" />
+              </font>
+          </Label>
+    </children>
+</AnchorPane>

@@ -1,6 +1,7 @@
 package org.but.feec.bds.services;
 
 import org.but.feec.bds.api.BookRequestCreateView;
+import org.but.feec.bds.api.BookRequestEditView;
 import org.but.feec.bds.api.BookRequestSimpleView;
 import org.but.feec.bds.data.BookRequestRepository;
 
@@ -19,5 +20,13 @@ public class BookRequestService {
 
     public List<BookRequestSimpleView> getBookRequestsSimpleView() {
         return bookRequestRepository.getBookRequestsSimpleView();
+    }
+
+    public void editBookRequest(BookRequestEditView bookRequestEditView) {
+        bookRequestRepository.editBookRequest(bookRequestEditView);
+    }
+
+    public void deleteBookRequest(Long id) {
+        bookRequestRepository.deleteBookRequest(id);
     }
 }

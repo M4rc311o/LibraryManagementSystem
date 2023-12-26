@@ -1,16 +1,10 @@
 package org.but.feec.bds.data;
 
-import org.but.feec.bds.api.StandardUserDetailedView;
-import org.but.feec.bds.api.StandardUserSimpleView;
-import org.but.feec.bds.api.UserAuthView;
-import org.but.feec.bds.api.UserSessionView;
+import org.but.feec.bds.api.*;
 import org.but.feec.bds.config.DataSourceConfig;
 import org.but.feec.bds.exceptions.DataAccessException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,6 +101,52 @@ public class UserRepository {
             throw new DataAccessException("Standard user detailed view could not be loaded.", e);
         }
         return null;
+    }
+
+    public void editStandardUser(StandardUserEditView standardUserEditView) {
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement updateUserTablePreparedStatement = connection.prepareStatement(
+                     "UPDATE bds.user " +
+                             "SET first_name = ?, last_name = ?, role_id = (SELECT role_id FROM bds.role WHERE role = ?), date_of_birth = ? " +
+                             "WHERE user_id = ?;"
+             );
+             PreparedStatement updateUserContactTablePreparedStatement = connection.prepareStatement(
+                     "UPDATE bds.user_contact " +
+                             "SET email = ?, phone_number = ? " +
+                             "WHERE user_id = ?;"
+             );
+        ) {
+            updateUserTablePreparedStatement.setString(1, standardUserEditView.getFirstName());
+            updateUserTablePreparedStatement.setString(2, standardUserEditView.getLastName());
+            updateUserTablePreparedStatement.setString(3, standardUserEditView.getRole());
+            updateUserTablePreparedStatement.setDate(4, Date.valueOf(standardUserEditView.getDateOfBirth()));
+            updateUserTablePreparedStatement.setLong(5, standardUserEditView.getId());
+
+            updateUserContactTablePreparedStatement.setString(1, standardUserEditView.getEmail());
+            updateUserContactTablePreparedStatement.setString(2, standardUserEditView.getPhoneNumber());
+            updateUserContactTablePreparedStatement.setLong(3, standardUserEditView.getId());
+
+            try {
+                connection.setAutoCommit(false);
+                int userTableAffectedRows = updateUserTablePreparedStatement.executeUpdate();
+                int userContactTableAffectedRows = updateUserContactTablePreparedStatement.executeUpdate();
+                if (userTableAffectedRows == 0 || userContactTableAffectedRows == 0) {
+                    connection.rollback();
+                    throw new DataAccessException("Editing user has failed, no rows affected.");
+                }
+                connection.commit();
+            }
+            catch (SQLException e) {
+                connection.rollback();
+                throw new DataAccessException("Editing user has failed, operation on database has failed.", e);
+            }
+            finally {
+                connection.setAutoCommit(true);
+            }
+        }
+        catch (SQLException e) {
+            throw new DataAccessException("Editing user has failed, operation on database has failed.", e);
+        }
     }
 
     private StandardUserDetailedView mapToStandardUserDetailedView(ResultSet rs) throws SQLException {

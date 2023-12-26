@@ -1,6 +1,7 @@
 package org.but.feec.bds.data;
 
 import org.but.feec.bds.api.BookRequestCreateView;
+import org.but.feec.bds.api.BookRequestEditView;
 import org.but.feec.bds.api.BookRequestSimpleView;
 import org.but.feec.bds.config.DataSourceConfig;
 import org.but.feec.bds.exceptions.DataAccessException;
@@ -24,7 +25,7 @@ public class BookRequestRepository {
             preparedStatement.setLong(3, bookRequestCreateView.getUserId());
             int affectedRows = preparedStatement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DataAccessException("Creating book request failed, no rows affected.");
+                throw new DataAccessException("Creating book request has failed, no rows affected.");
             }
         }
         catch (SQLException e) {
@@ -48,6 +49,45 @@ public class BookRequestRepository {
         }
         catch (SQLException e) {
             throw new DataAccessException("Book requests simple view could not be loaded.", e);
+        }
+    }
+
+    public void editBookRequest(BookRequestEditView bookRequestEditView) {
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "UPDATE bds.book_request " +
+                             "SET title = ?, isbn = ? " +
+                             "WHERE book_request_id = ?;"
+             );
+        ) {
+            preparedStatement.setString(1, bookRequestEditView.getTitle());
+            preparedStatement.setString(2, bookRequestEditView.getIsbn());
+            preparedStatement.setLong(3, bookRequestEditView.getId());
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new DataAccessException("Editing book request has failed, no rows affected.");
+            }
+        }
+        catch (SQLException e) {
+            throw new DataAccessException("Editing book request has failed.", e);
+        }
+    }
+
+    public void deleteBookRequest(Long id) {
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "DELETE FROM bds.book_request " +
+                             "WHERE book_request_id = ?;"
+             );
+        ){
+            preparedStatement.setLong(1, id);
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new DataAccessException("Deleting book request has failed, no rows affected");
+            }
+        }
+        catch (SQLException e) {
+            throw new DataAccessException("Deleting book request has failed.", e);
         }
     }
 

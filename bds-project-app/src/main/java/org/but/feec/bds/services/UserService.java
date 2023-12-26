@@ -1,6 +1,7 @@
 package org.but.feec.bds.services;
 
 import org.but.feec.bds.api.StandardUserDetailedView;
+import org.but.feec.bds.api.StandardUserEditView;
 import org.but.feec.bds.api.StandardUserSimpleView;
 import org.but.feec.bds.data.UserRepository;
 import org.but.feec.bds.exceptions.ResourceNotFoundException;
@@ -24,5 +25,9 @@ public class UserService {
             throw new ResourceNotFoundException("Provided id was not found.");
         }
         return standardUserDetailedView;
+    }
+
+    public void editStandardUser(StandardUserEditView standardUserEditView) {
+        userRepository.editStandardUser(standardUserEditView);
     }
 }

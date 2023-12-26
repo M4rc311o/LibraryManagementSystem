@@ -26,7 +26,7 @@
         </AnchorPane>
         <TabPane prefHeight="562.0" prefWidth="926.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
-                <Tab fx:id="physicalBooksTab" text="Books">
+                <Tab fx:id="physicalBooksTab" text="Physical book">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -42,8 +42,8 @@
                               </TableView>
                               <AnchorPane prefHeight="217.0" prefWidth="930.0">
                                  <children>
-                                    <Button fx:id="loanBookButton" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" text="Loan book" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="15.0" />
-                                    <Button fx:id="returnBookButton" layoutX="116.0" layoutY="15.0" mnemonicParsing="false" text="Return book" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="15.0" />
+                                    <Button fx:id="loanBookButton" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#loanBookActionHandler" text="Loan book" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="15.0" />
+                                    <Button fx:id="returnBookButton" layoutX="116.0" layoutY="15.0" mnemonicParsing="false" onAction="#returnBookActionHandler" text="Return book" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="15.0" />
                                  </children>
                               </AnchorPane>
                            </children>

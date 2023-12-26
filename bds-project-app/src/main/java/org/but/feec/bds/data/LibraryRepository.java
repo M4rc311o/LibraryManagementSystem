@@ -1,5 +1,6 @@
 package org.but.feec.bds.data;
 
+import org.but.feec.bds.api.LibraryNameWithIdIdentifier;
 import org.but.feec.bds.api.LibrarySimpleView;
 import org.but.feec.bds.config.DataSourceConfig;
 import org.but.feec.bds.exceptions.DataAccessException;
@@ -37,6 +38,32 @@ public class LibraryRepository {
         catch (SQLException e) {
             throw new DataAccessException("Libraries simple view could not be loaded.", e);
         }
+    }
+
+    public List<LibraryNameWithIdIdentifier> getLibrariesNamesWithIdIdentifier() {
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT library_id, name " +
+                             "FROM bds.library;"
+             );
+             ResultSet resultSet = preparedStatement.executeQuery();
+        ) {
+            List<LibraryNameWithIdIdentifier> libraryNamesWithIdIdentifiers = new ArrayList<>();
+            while (resultSet.next()) {
+                libraryNamesWithIdIdentifiers.add(mapToLibraryNamesWithIdIdentifiers(resultSet));
+            }
+            return libraryNamesWithIdIdentifiers;
+        }
+        catch (SQLException e) {
+            throw new DataAccessException("Libraries names with id identifiers could not be loaded.", e);
+        }
+    }
+
+    private LibraryNameWithIdIdentifier mapToLibraryNamesWithIdIdentifiers(ResultSet rs) throws SQLException {
+        LibraryNameWithIdIdentifier libraryNameWithIdIdentifier = new LibraryNameWithIdIdentifier();
+        libraryNameWithIdIdentifier.setId(rs.getLong("library_id"));
+        libraryNameWithIdIdentifier.setName(rs.getString("name"));
+        return libraryNameWithIdIdentifier;
     }
 
     private LibrarySimpleView mapToLibrarySimpleView(ResultSet rs) throws SQLException {

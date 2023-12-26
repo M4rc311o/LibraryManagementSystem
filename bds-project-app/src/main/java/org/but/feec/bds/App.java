@@ -27,8 +27,8 @@ public class App extends Application {
             primaryStage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
             primaryStage.setScene(scene);
             primaryStage.show();
-        } catch (Exception ex) {
-            ExceptionHandler.handleException(ex);
+        } catch (Exception e) {
+            ExceptionHandler.handleException(e);
         }
     }
 }
