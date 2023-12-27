@@ -40,6 +40,8 @@ public class LoginController {
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordPasswordField;
+    @FXML
+    private Button newAccountButton;
 
     private AuthService authService;
     private UserRepository userRepository;
@@ -79,6 +81,7 @@ public class LoginController {
         signInButton.disableProperty().bind(validation.invalidProperty());
     }
 
+   @FXML
     public void signInActionHandler(ActionEvent event) {
         handleSignIn();
     }
@@ -92,20 +95,11 @@ public class LoginController {
             if (authenticated) {
                 showValidCredentialsDialog();
                 switch (sessionService.getCurrentRole()){
-                    case "librarian":
+                    case "librarian", "administrator":
                         showLibrarianView();
                         break;
-                    case "basic":
+                    case "basic", "student", "child":
                         showStandardUserView();
-                        break;
-                    case "child":
-                        showStandardUserView();
-                        break;
-                    case "student":
-                        showStandardUserView();
-                        break;
-                    case "administrator":
-                        showAdministratorView();
                         break;
                 }
 
@@ -116,6 +110,27 @@ public class LoginController {
         }
         catch (ResourceNotFoundException | DataAccessException e) {
             showInvalidCredentialsDialog();
+        }
+    }
+
+    @FXML
+    public void newAccountActionHandler(ActionEvent event) {
+        handleNewAccount();
+    }
+
+    private void handleNewAccount() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/CreateAccount.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 407, 420);
+            Stage stage = new Stage();
+            stage.setTitle("LMS Create account");
+            stage.setScene(scene);
+
+            stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
+            stage.show();
+        }
+        catch (IOException e) {
+            ExceptionHandler.handleException(e);
         }
     }
 
@@ -179,9 +194,5 @@ public class LoginController {
         catch (IOException e) {
             ExceptionHandler.handleException(e);
         }
-    }
-
-    private void showAdministratorView() {
-
     }
 }

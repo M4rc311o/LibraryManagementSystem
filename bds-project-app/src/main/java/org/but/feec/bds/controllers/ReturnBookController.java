@@ -5,10 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.but.feec.bds.api.LibraryNameWithIdIdentifier;
-import org.but.feec.bds.api.ReturnBook;
+import org.but.feec.bds.api.ReturnBookView;
 import org.but.feec.bds.data.LibraryRepository;
 import org.but.feec.bds.data.LoanRepository;
 import org.but.feec.bds.data.PhysicalBookRepository;
+import org.but.feec.bds.exceptions.StructureViolationException;
 import org.but.feec.bds.services.LibraryService;
 import org.but.feec.bds.services.LoanService;
 import org.but.feec.bds.services.PhysicalBookService;
@@ -97,13 +98,22 @@ public class ReturnBookController {
     }
 
     private void handleApply() {
-        ReturnBook returnBook = new ReturnBook();
-        returnBook.setId(Long.valueOf(physicalBookIdTextField.getText()));
-        returnBook.setFee(new BigDecimal(feeTextField.getText()));
-        returnBook.setCondition(conditionTextArea.getText());
-        returnBook.setLibraryId(libraryChoiceBox.getValue().getId());
+        ReturnBookView returnBookView = new ReturnBookView();
+        returnBookView.setId(Long.valueOf(physicalBookIdTextField.getText()));
+        returnBookView.setFee(new BigDecimal(feeTextField.getText()));
+        returnBookView.setCondition(conditionTextArea.getText());
+        returnBookView.setLibraryId(libraryChoiceBox.getValue().getId());
 
-        loanService.returnBook(returnBook);
+        try {
+            loanService.returnBook(returnBookView);
+        }
+        catch (StructureViolationException e) {
+            Alert alertDialog = new Alert(Alert.AlertType.ERROR);
+            alertDialog.setTitle("Book return error");
+            alertDialog.setHeaderText(e.getMessage());
+            alertDialog.setContentText("Click OK to continue");
+            alertDialog.showAndWait();
+        }
         refreshCallback.run();
 
         Stage stage = (Stage) applyButton.getScene().getWindow();

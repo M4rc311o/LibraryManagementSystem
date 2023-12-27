@@ -60,15 +60,15 @@ public class LibrarianController {
     @FXML
     public Tab usersTab;
     @FXML
-    private TableColumn<StandardUserSimpleView, Long> userIdColumn;
+    private TableColumn<UserSimpleView, Long> userIdColumn;
     @FXML
-    private TableColumn<StandardUserSimpleView, String> userFirstNameColumn;
+    private TableColumn<UserSimpleView, String> userFirstNameColumn;
     @FXML
-    private TableColumn<StandardUserSimpleView, String> userLastNameColumn;
+    private TableColumn<UserSimpleView, String> userLastNameColumn;
     @FXML
-    private TableColumn<StandardUserSimpleView, String> userRoleColumn;
+    private TableColumn<UserSimpleView, String> userRoleColumn;
     @FXML
-    private TableView<StandardUserSimpleView> usersTableView;
+    private TableView<UserSimpleView> usersTableView;
 
     private SessionService sessionService;
     private UserRepository userRepository;
@@ -101,12 +101,12 @@ public class LibrarianController {
         bookRequestsTableView.getSortOrder().add(bookRequestIdColumn);
         initializeBookRequestsTableViewSelection();
 
-        userIdColumn.setCellValueFactory(new PropertyValueFactory<StandardUserSimpleView, Long>("id"));
-        userFirstNameColumn.setCellValueFactory(new PropertyValueFactory<StandardUserSimpleView, String>("firstName"));
-        userLastNameColumn.setCellValueFactory(new PropertyValueFactory<StandardUserSimpleView, String>("lastName"));
-        userRoleColumn.setCellValueFactory(new PropertyValueFactory<StandardUserSimpleView, String>("role"));
-        ObservableList<StandardUserSimpleView> observableStandardUserSimpleViews = initializeStandardUsersData();
-        usersTableView.setItems(observableStandardUserSimpleViews);
+        userIdColumn.setCellValueFactory(new PropertyValueFactory<UserSimpleView, Long>("id"));
+        userFirstNameColumn.setCellValueFactory(new PropertyValueFactory<UserSimpleView, String>("firstName"));
+        userLastNameColumn.setCellValueFactory(new PropertyValueFactory<UserSimpleView, String>("lastName"));
+        userRoleColumn.setCellValueFactory(new PropertyValueFactory<UserSimpleView, String>("role"));
+        ObservableList<UserSimpleView> observableUserSimpleViews = initializeStandardUsersData();
+        usersTableView.setItems(observableUserSimpleViews);
         usersTableView.getSortOrder().add(userIdColumn);
         initializeUsersTableViewSelection();
 
@@ -191,12 +191,12 @@ public class LibrarianController {
 
         MenuItem detailedView = new MenuItem("Detailed view");
         detailedView.setOnAction((ActionEvent event) -> {
-            StandardUserSimpleView standardUserSimpleView = usersTableView.getSelectionModel().getSelectedItem();
+            UserSimpleView userSimpleView = usersTableView.getSelectionModel().getSelectedItem();
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/StandardUserDetailedView.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/UserDeatiledView.fxml"));
                 Stage stage = new Stage();
-                StandardUserDetailedView standardUserDetailedView = userService.getStandardUserDetailedViewById(standardUserSimpleView.getId());
-                stage.setUserData(standardUserDetailedView);
+                UserDeatiledView standardUserDeatiledView = userService.getUserDetailedViewById(userSimpleView.getId());
+                stage.setUserData(standardUserDeatiledView);
                 stage.setTitle("User detailed view");
                 stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
                 StandardUserDetailedViewController standardUserDetailedViewController = new StandardUserDetailedViewController();
@@ -214,12 +214,12 @@ public class LibrarianController {
 
         MenuItem editView = new MenuItem("Edit");
         editView.setOnAction((ActionEvent event) -> {
-            StandardUserSimpleView standardUserSimpleView = usersTableView.getSelectionModel().getSelectedItem();
+            UserSimpleView userSimpleView = usersTableView.getSelectionModel().getSelectedItem();
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/StandardUserEditView.fxml"));
                 Stage stage = new Stage();
-                StandardUserDetailedView standardUserDetailedView = userService.getStandardUserDetailedViewById(standardUserSimpleView.getId());
-                stage.setUserData(standardUserDetailedView);
+                UserDeatiledView standardUserDeatiledView = userService.getUserDetailedViewById(userSimpleView.getId());
+                stage.setUserData(standardUserDeatiledView);
                 stage.setTitle("Edit user");
                 stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
                 StandardUserEditViewController standardUserEditViewController = new StandardUserEditViewController();
@@ -261,9 +261,9 @@ public class LibrarianController {
         return FXCollections.observableArrayList(bookRequestSimpleViews);
     }
 
-    private ObservableList<StandardUserSimpleView> initializeStandardUsersData() {
-        List<StandardUserSimpleView> standardUserSimpleViews = userService.getStandardUsersView();
-        return FXCollections.observableArrayList(standardUserSimpleViews);
+    private ObservableList<UserSimpleView> initializeStandardUsersData() {
+        List<UserSimpleView> userSimpleViews = userService.getStandardUsersSimpleView();
+        return FXCollections.observableArrayList(userSimpleViews);
     }
 
     @FXML
@@ -296,7 +296,7 @@ public class LibrarianController {
 
     private void handleReturnBook() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/ReturnBook.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/ReturnBookView.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Return book");
             stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
@@ -312,6 +312,27 @@ public class LibrarianController {
         }
     }
 
+    @FXML
+    public void manageAccountEventHandler(ActionEvent event) {
+        handleManageAccount();
+    }
+
+    private void handleManageAccount() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/UserAccountEdit.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Manage account");
+            stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
+            Scene scene = new Scene(fxmlLoader.load(), 407, 440);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (IOException e) {
+            ExceptionHandler.handleException(e);
+        }
+    }
+
+    @FXML
     public void signOutActionHandler(ActionEvent event) {
         handleSignOut();
     }

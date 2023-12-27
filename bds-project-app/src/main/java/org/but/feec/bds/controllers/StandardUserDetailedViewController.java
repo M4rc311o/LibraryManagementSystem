@@ -3,7 +3,7 @@ package org.but.feec.bds.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.but.feec.bds.api.StandardUserDetailedView;
+import org.but.feec.bds.api.UserDeatiledView;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
@@ -44,15 +44,15 @@ public class StandardUserDetailedViewController {
 
     private void loadStandardUserData() {
         Stage stage = this.stage;
-        if (stage.getUserData() instanceof StandardUserDetailedView standardUserDetailedView) {
-            idValueLabel.setText(String.valueOf(standardUserDetailedView.getId()));
-            usernameValueLabel.setText(standardUserDetailedView.getUsername());
-            firstNameValueLabel.setText(standardUserDetailedView.getFirstName());
-            lastNameValueLabel.setText(standardUserDetailedView.getLastName());
-            roleValueLabel.setText(standardUserDetailedView.getRole());
-            phoneNumberValueLabel.setText(standardUserDetailedView.getPhoneNumber());
-            emailValueLabel.setText(standardUserDetailedView.getEmail());
-            dateOfBirthValueLabel.setText(standardUserDetailedView.getDateOfBirth().toString());
+        if (stage.getUserData() instanceof UserDeatiledView standardUserDeatiledView) {
+            idValueLabel.setText(String.valueOf(standardUserDeatiledView.getId()));
+            usernameValueLabel.setText(standardUserDeatiledView.getUsername());
+            firstNameValueLabel.setText(standardUserDeatiledView.getFirstName());
+            lastNameValueLabel.setText(standardUserDeatiledView.getLastName());
+            roleValueLabel.setText(standardUserDeatiledView.getRole());
+            phoneNumberValueLabel.setText(standardUserDeatiledView.getPhoneNumber());
+            emailValueLabel.setText(standardUserDeatiledView.getEmail());
+            dateOfBirthValueLabel.setText(standardUserDeatiledView.getDateOfBirth().toString());
         }
     }
 }

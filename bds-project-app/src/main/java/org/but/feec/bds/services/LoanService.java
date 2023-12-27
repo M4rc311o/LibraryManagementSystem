@@ -2,7 +2,7 @@ package org.but.feec.bds.services;
 
 import org.but.feec.bds.api.LoanBookCreateView;
 import org.but.feec.bds.api.LoanSimpleView;
-import org.but.feec.bds.api.ReturnBook;
+import org.but.feec.bds.api.ReturnBookView;
 import org.but.feec.bds.data.LoanRepository;
 import org.but.feec.bds.data.PhysicalBookRepository;
 import org.but.feec.bds.exceptions.StructureViolationException;
@@ -28,7 +28,11 @@ public class LoanService {
         loanRepository.createLoan(loanBookCreateView);
     }
 
-    public void returnBook(ReturnBook returnBook) {
-        loanRepository.returnBook(returnBook);
+    public void returnBook(ReturnBookView returnBookView) throws StructureViolationException {
+        PhysicalBookService physicalBookService = new PhysicalBookService(new PhysicalBookRepository());
+        if (!physicalBookService.isPhysicalBookLoaned(returnBookView.getId())) {
+            throw new StructureViolationException("Book requested for return is already returned.");
+        }
+        loanRepository.returnBook(returnBookView);
     }
 }

@@ -4,20 +4,26 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.but.feec.bds.App;
 import org.but.feec.bds.api.BookRequestCreateView;
 import org.but.feec.bds.api.BookSimpleView;
 import org.but.feec.bds.api.LibrarySimpleView;
 import org.but.feec.bds.api.LoanSimpleView;
 import org.but.feec.bds.data.*;
+import org.but.feec.bds.exceptions.ExceptionHandler;
 import org.but.feec.bds.services.*;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
@@ -208,6 +214,26 @@ public class StandardUserController {
 
         titleBookRequestTextField.clear();
         isbnBookRequestTextField.clear();
+    }
+
+    @FXML
+    public void manageAccountEventHandler(ActionEvent event) {
+        handleManageAccount();
+    }
+
+    private void handleManageAccount() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/UserAccountEdit.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Manage account");
+            stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
+            Scene scene = new Scene(fxmlLoader.load(), 407, 440);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (IOException e) {
+            ExceptionHandler.handleException(e);
+        }
     }
 
     private void bookRequestCreatedConfirmationDialog() {

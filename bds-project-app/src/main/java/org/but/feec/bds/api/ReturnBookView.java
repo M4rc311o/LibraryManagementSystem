@@ -2,7 +2,7 @@ package org.but.feec.bds.api;
 
 import java.math.BigDecimal;
 
-public class ReturnBook {
+public class ReturnBookView {
     private Long id;
     private BigDecimal fee;
     private String condition;

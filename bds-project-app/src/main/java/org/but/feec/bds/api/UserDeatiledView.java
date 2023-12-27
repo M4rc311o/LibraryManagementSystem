@@ -4,7 +4,7 @@ import javafx.beans.property.*;
 
 import java.sql.Date;
 
-public class StandardUserDetailedView {
+public class UserDeatiledView {
     private LongProperty id = new SimpleLongProperty();
     private StringProperty username = new SimpleStringProperty();
     private ObjectProperty<Date> dateOfBirth = new SimpleObjectProperty<>();

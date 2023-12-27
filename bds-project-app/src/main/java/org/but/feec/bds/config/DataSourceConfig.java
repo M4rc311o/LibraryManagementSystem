@@ -27,7 +27,7 @@ public class DataSourceConfig {
 
     public static synchronized void initializeDataSource(String[] args) {
         if (args == null || args.length == 0) {
-            try (InputStream resourceStream = DataSourceConfig.class.getClassLoader().getResourceAsStream("org/but/feec/bds/application.properties")) {
+            try (InputStream resourceStream = DataSourceConfig.class.getClassLoader().getResourceAsStream("application.properties")) {
                 initializeDataSource(resourceStream);
             } catch (IOException | NullPointerException | IllegalArgumentException e) {
                 logger.error("Configuration of the datasource was not successful.", e);

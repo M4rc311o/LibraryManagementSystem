@@ -32,6 +32,8 @@ build/
 ### Maven
 dependency-reduced-pom.xml
 target/
+logs/
+*.log
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

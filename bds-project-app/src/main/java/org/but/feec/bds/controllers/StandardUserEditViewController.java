@@ -1,16 +1,13 @@
 package org.but.feec.bds.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.but.feec.bds.api.StandardUserDetailedView;
+import org.but.feec.bds.api.UserDeatiledView;
 import org.but.feec.bds.api.StandardUserEditView;
 import org.but.feec.bds.data.UserRepository;
 import org.but.feec.bds.services.UserService;
-import org.controlsfx.validation.Severity;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 import org.slf4j.Logger;
@@ -87,15 +84,15 @@ public class StandardUserEditViewController {
 
     private void loadStandardUserData() {
         Stage stage = this.stage;
-        if (stage.getUserData() instanceof StandardUserDetailedView standardUserDetailedView) {
-            idValueLabel.setText(String.valueOf(standardUserDetailedView.getId()));
-            usernameValueLabel.setText(standardUserDetailedView.getUsername());
-            firstNameTextField.setText(standardUserDetailedView.getFirstName());
-            lastNameTextField.setText(standardUserDetailedView.getLastName());
-            roleChoiceBox.setValue(standardUserDetailedView.getRole());
-            phoneNumberTextField.setText(standardUserDetailedView.getPhoneNumber());
-            emailTextField.setText(standardUserDetailedView.getEmail());
-            dateOfBirthDatePicker.setValue(standardUserDetailedView.getDateOfBirth().toLocalDate());
+        if (stage.getUserData() instanceof UserDeatiledView standardUserDeatiledView) {
+            idValueLabel.setText(String.valueOf(standardUserDeatiledView.getId()));
+            usernameValueLabel.setText(standardUserDeatiledView.getUsername());
+            firstNameTextField.setText(standardUserDeatiledView.getFirstName());
+            lastNameTextField.setText(standardUserDeatiledView.getLastName());
+            roleChoiceBox.setValue(standardUserDeatiledView.getRole());
+            phoneNumberTextField.setText(standardUserDeatiledView.getPhoneNumber());
+            emailTextField.setText(standardUserDeatiledView.getEmail());
+            dateOfBirthDatePicker.setValue(standardUserDeatiledView.getDateOfBirth().toLocalDate());
         }
     }
 

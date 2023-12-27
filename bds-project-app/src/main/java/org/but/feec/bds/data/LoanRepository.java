@@ -2,7 +2,7 @@ package org.but.feec.bds.data;
 
 import org.but.feec.bds.api.LoanBookCreateView;
 import org.but.feec.bds.api.LoanSimpleView;
-import org.but.feec.bds.api.ReturnBook;
+import org.but.feec.bds.api.ReturnBookView;
 import org.but.feec.bds.config.DataSourceConfig;
 import org.but.feec.bds.exceptions.DataAccessException;
 
@@ -39,7 +39,7 @@ public class LoanRepository {
         }
     }
 
-    public void returnBook(ReturnBook returnBook) {
+    public void returnBook(ReturnBookView returnBookView) {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement updateLoanedBookTablePreparedStatement = connection.prepareStatement(
                      "UPDATE bds.loaned_book " +
@@ -52,11 +52,11 @@ public class LoanRepository {
                              "WHERE physical_book_id = ?;", Statement.RETURN_GENERATED_KEYS
              );
         ) {
-            updateLoanedBookTablePreparedStatement.setBigDecimal(1, returnBook.getFee());
-            updateLoanedBookTablePreparedStatement.setLong(2, returnBook.getId());
+            updateLoanedBookTablePreparedStatement.setBigDecimal(1, returnBookView.getFee());
+            updateLoanedBookTablePreparedStatement.setLong(2, returnBookView.getId());
 
-            updatePhysicalBookTablePreparedStatement.setLong(1, returnBook.getLibraryId());
-            updatePhysicalBookTablePreparedStatement.setLong(2, returnBook.getId());
+            updatePhysicalBookTablePreparedStatement.setLong(1, returnBookView.getLibraryId());
+            updatePhysicalBookTablePreparedStatement.setLong(2, returnBookView.getId());
             try {
                 connection.setAutoCommit(false);
                 int loanedBookTableAffectedRows = updateLoanedBookTablePreparedStatement.executeUpdate();
