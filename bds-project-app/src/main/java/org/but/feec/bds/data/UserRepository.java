@@ -24,7 +24,6 @@ public class UserRepository {
                 if (resultSet.next()) {
                     return mapToUserAuthView(resultSet);
                 }
-
             }
         }
         catch (SQLException e) {

@@ -86,9 +86,9 @@ public class ReturnBookController {
 
     private void initializeValidations() {
         validationReturnBook = new ValidationSupport();
-        validationReturnBook.registerValidator(physicalBookIdTextField, Validator.createRegexValidator("Invalid physical book id format", "^[1-9]\\d*$", Severity.ERROR));
-        physicalBookIdTextFieldValidator = Validator.createRegexValidator("Invalid fee format", "^([1-9]+\\d*|0+)(\\.\\d{1,2})?$", Severity.ERROR);
-        validationReturnBook.registerValidator(feeTextField, physicalBookIdTextFieldValidator);
+        physicalBookIdTextFieldValidator = Validator.createRegexValidator("Invalid physical book id format", "^[1-9]\\d*$", Severity.ERROR);
+        validationReturnBook.registerValidator(physicalBookIdTextField, physicalBookIdTextFieldValidator);
+        validationReturnBook.registerValidator(feeTextField, Validator.createRegexValidator("Invalid fee format", "^([1-9]+\\d*|0+)(\\.\\d{1,2})?$", Severity.ERROR));
         applyButton.disableProperty().bind(validationReturnBook.invalidProperty());
     }
 

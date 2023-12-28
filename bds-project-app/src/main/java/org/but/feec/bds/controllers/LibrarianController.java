@@ -46,6 +46,8 @@ public class LibrarianController {
     private Button loanBookButton;
     @FXML
     private Button returnBookButton;
+    @FXML
+    private Button addBookButton;
 
     @FXML
     public Tab bookRequestsTab;
@@ -147,7 +149,7 @@ public class LibrarianController {
         detailedView.setOnAction((ActionEvent event) -> {
             PhysicalBookSimpleView physicalBookSimpleView = physicalBooksTableView.getSelectionModel().getSelectedItem();
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/PhysicalBookDetailedView.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/PhysicalBookDetailed.fxml"));
                 Stage stage = new Stage();
                 PhysicalBookDetailedView physicalBookDetailedView = physicalBookService.getPhysicalBookDetailedViewById(physicalBookSimpleView.getId());
                 stage.setUserData(physicalBookDetailedView);
@@ -176,7 +178,7 @@ public class LibrarianController {
         editView.setOnAction((ActionEvent event) -> {
             BookRequestSimpleView bookRequestSimpleView = bookRequestsTableView.getSelectionModel().getSelectedItem();
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/BookRequestEditView.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/BookRequestEdit.fxml"));
                 Stage stage = new Stage();
                 stage.setUserData(bookRequestSimpleView);
                 stage.setTitle("Edit book request");
@@ -220,7 +222,7 @@ public class LibrarianController {
         detailedView.setOnAction((ActionEvent event) -> {
             UserSimpleView userSimpleView = usersTableView.getSelectionModel().getSelectedItem();
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/StandardUserDetailedView.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/StandardUserDetailed.fxml"));
                 Stage stage = new Stage();
                 UserDeatiledView standardUserDeatiledView = userService.getUserDetailedViewById(userSimpleView.getId());
                 stage.setUserData(standardUserDeatiledView);
@@ -243,7 +245,7 @@ public class LibrarianController {
         editView.setOnAction((ActionEvent event) -> {
             UserSimpleView userSimpleView = usersTableView.getSelectionModel().getSelectedItem();
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/StandardUserEditView.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/StandardUserEdit.fxml"));
                 Stage stage = new Stage();
                 UserDeatiledView standardUserDeatiledView = userService.getUserDetailedViewById(userSimpleView.getId());
                 stage.setUserData(standardUserDeatiledView);
@@ -333,6 +335,29 @@ public class LibrarianController {
             returnBookController.setRefreshCallback(this::refreshPhysicalBooksTableView);
             fxmlLoader.setController(returnBookController);
             Scene scene = new Scene(fxmlLoader.load(), 407, 462);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (IOException e) {
+            ExceptionHandler.handleException(e);
+        }
+    }
+
+    @FXML
+    public void addBookActionHandler(ActionEvent event) {
+        handleAddBook();
+    }
+
+    private void handleAddBook() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/AddBook.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Add book");
+            stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
+            AddBookController bookAddController = new AddBookController();
+            bookAddController.setRefreshCallback(this::refreshPhysicalBooksTableView);
+            fxmlLoader.setController(bookAddController);
+            Scene scene = new Scene(fxmlLoader.load(), 410, 630);
             stage.setScene(scene);
             stage.show();
         }

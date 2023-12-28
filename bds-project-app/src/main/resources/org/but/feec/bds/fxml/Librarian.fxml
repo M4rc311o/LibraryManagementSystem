@@ -46,6 +46,7 @@
                                  <children>
                                     <Button fx:id="loanBookButton" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#loanBookActionHandler" text="Loan book" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="15.0" />
                                     <Button fx:id="returnBookButton" layoutX="116.0" layoutY="15.0" mnemonicParsing="false" onAction="#returnBookActionHandler" text="Return book" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="15.0" />
+                                    <Button fx:id="addBookButton" layoutX="834.0" layoutY="15.0" mnemonicParsing="false" onAction="#addBookActionHandler" text="Add book" />
                                  </children>
                               </AnchorPane>
                            </children>

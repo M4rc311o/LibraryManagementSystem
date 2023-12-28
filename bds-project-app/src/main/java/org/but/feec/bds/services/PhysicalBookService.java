@@ -1,6 +1,7 @@
 package org.but.feec.bds.services;
 
 import javafx.util.Pair;
+import org.but.feec.bds.api.PhysicalBookCreateView;
 import org.but.feec.bds.api.PhysicalBookDetailedView;
 import org.but.feec.bds.api.PhysicalBookSimpleView;
 import org.but.feec.bds.data.PhysicalBookRepository;
@@ -37,6 +38,10 @@ public class PhysicalBookService {
             return null;
         }
         return optionalLibraryId.get();
+    }
+
+    public Long createPhysicalBook(PhysicalBookCreateView physicalBookCreateView) {
+        return physicalBookRepository.createPhysicalBook(physicalBookCreateView);
     }
 
     public boolean isPhysicalBookLoaned(Long id) {

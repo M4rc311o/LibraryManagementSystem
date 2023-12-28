@@ -1,5 +1,6 @@
 package org.but.feec.bds.data;
 
+import org.but.feec.bds.api.PhysicalBookCreateView;
 import org.but.feec.bds.api.PhysicalBookDetailedView;
 import org.but.feec.bds.api.PhysicalBookSimpleView;
 import org.but.feec.bds.config.DataSourceConfig;
@@ -15,6 +16,33 @@ import java.util.Optional;
 
 public class PhysicalBookRepository {
     public PhysicalBookRepository() {}
+
+    public Long createPhysicalBook(PhysicalBookCreateView physicalBookCreateView) {
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "INSERT INTO bds.physical_book (condition, book_id, library_id) " +
+                             "VALUES (?, ?, ?);"
+             );
+        ) {
+            preparedStatement.setString(1, physicalBookCreateView.getCondition());
+            preparedStatement.setLong(2, physicalBookCreateView.getBookId());
+            preparedStatement.setLong(3, physicalBookCreateView.getLibraryId());
+
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new DataAccessException("Creating physical book has failed, no rows affected.");
+            }
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    return generatedKeys.getLong(1);
+                }
+            }
+        }
+        catch (SQLException e) {
+            throw new DataAccessException("Creating physical book has failed, operation on database has failed.", e);
+        }
+        return null;
+    }
 
     public List<PhysicalBookSimpleView> getPhysicalBooksSimpleView() {
         try (Connection connection = DataSourceConfig.getConnection();
