@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -70,12 +71,33 @@ public class LibrarianController {
     @FXML
     private TableView<UserSimpleView> usersTableView;
 
+    @FXML
+    public Tab sqlInjectionTab;
+    @FXML
+    private TableColumn<SqlInjectionStaffView, Long> sqlInjectionIdColumn;
+    @FXML
+    private TableColumn<SqlInjectionStaffView, String> sqlInjectionUsernameColumn;
+    @FXML
+    private TableColumn<SqlInjectionStaffView, Date> sqlInjectionJoinDateColumn;
+    @FXML
+    private TableColumn<SqlInjectionStaffView, String> sqlInjectionPhoneNumberColumn;
+    @FXML
+    private TableView<SqlInjectionStaffView> sqlInjectionTableView;
+    @FXML
+    private Button sqlInjectionShowMyInfoButton;
+    @FXML
+    private TextField sqlInjectionUsernameTextField;
+    @FXML
+    private TextField sqlInjectionPasswordTextField;
+
     private SessionService sessionService;
     private UserRepository userRepository;
     private PhysicalBookService physicalBookService;
     private PhysicalBookRepository physicalBookRepository;
     private BookRequestService bookRequestService;
     private BookRequestRepository bookRequestRepository;
+    private SqlInjectionStaffRepository sqlInjectionStaffRepository;
+    private SqlInjectionStaffService sqlInjectionStaffService;
     private UserService userService;
 
     @FXML
@@ -109,6 +131,11 @@ public class LibrarianController {
         usersTableView.setItems(observableUserSimpleViews);
         usersTableView.getSortOrder().add(userIdColumn);
         initializeUsersTableViewSelection();
+
+        sqlInjectionIdColumn.setCellValueFactory(new PropertyValueFactory<SqlInjectionStaffView, Long>("id"));
+        sqlInjectionUsernameColumn.setCellValueFactory(new PropertyValueFactory<SqlInjectionStaffView, String>("username"));
+        sqlInjectionJoinDateColumn.setCellValueFactory(new PropertyValueFactory<SqlInjectionStaffView, Date>("joinDate"));
+        sqlInjectionPhoneNumberColumn.setCellValueFactory(new PropertyValueFactory<SqlInjectionStaffView, String>("phoneNumber"));
 
         logger.info("LibrarianController initialized");
     }
@@ -193,7 +220,7 @@ public class LibrarianController {
         detailedView.setOnAction((ActionEvent event) -> {
             UserSimpleView userSimpleView = usersTableView.getSelectionModel().getSelectedItem();
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/UserDeatiledView.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/StandardUserDetailedView.fxml"));
                 Stage stage = new Stage();
                 UserDeatiledView standardUserDeatiledView = userService.getUserDetailedViewById(userSimpleView.getId());
                 stage.setUserData(standardUserDeatiledView);
@@ -244,11 +271,13 @@ public class LibrarianController {
         userRepository = new UserRepository();
         physicalBookRepository = new PhysicalBookRepository();
         bookRequestRepository = new BookRequestRepository();
+        sqlInjectionStaffRepository = new SqlInjectionStaffRepository();
 
         sessionService = new SessionService(userRepository, UserSession.getSession());
         physicalBookService = new PhysicalBookService(physicalBookRepository);
         bookRequestService = new BookRequestService(bookRequestRepository);
         userService = new UserService(userRepository);
+        sqlInjectionStaffService = new SqlInjectionStaffService(sqlInjectionStaffRepository);
     }
 
     private ObservableList<PhysicalBookSimpleView> initializePhysicalBooksData() {
@@ -296,7 +325,7 @@ public class LibrarianController {
 
     private void handleReturnBook() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/ReturnBookView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/ReturnBook.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Return book");
             stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
@@ -310,6 +339,18 @@ public class LibrarianController {
         catch (IOException e) {
             ExceptionHandler.handleException(e);
         }
+    }
+
+    @FXML
+    public void sqlInjectionShowMyInfoActionHandler(ActionEvent event) {
+        handleSqlInjectionShowMyInfo();
+    }
+
+    private void handleSqlInjectionShowMyInfo() {
+        List<SqlInjectionStaffView> sqlInjectionStaffViews = sqlInjectionStaffService.getSqlInjectionStaffView(sqlInjectionUsernameTextField.getText(), sqlInjectionPasswordTextField.getText());
+        ObservableList<SqlInjectionStaffView> observableSqlInjectionStaffViews = FXCollections.observableArrayList(sqlInjectionStaffViews);
+        sqlInjectionTableView.setItems(observableSqlInjectionStaffViews);
+        sqlInjectionTableView.getSortOrder().add(sqlInjectionIdColumn);
     }
 
     @FXML

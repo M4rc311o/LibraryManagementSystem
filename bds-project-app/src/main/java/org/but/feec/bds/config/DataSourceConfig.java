@@ -53,6 +53,7 @@ public class DataSourceConfig {
         config.setJdbcUrl(properties.getProperty("datasource.url"));
         config.setUsername(properties.getProperty("datasource.username"));
         config.setPassword(properties.getProperty("datasource.password"));
+
         ds = new HikariDataSource(config);
     }
 
