@@ -79,6 +79,8 @@ public class StandardUserEditViewController {
         validationUserEdit.registerValidator(lastNameTextField, Validator.createEmptyValidator("The last name must not be empty."));
         validationUserEdit.registerValidator(phoneNumberTextField, Validator.createEmptyValidator("The phone number must not be empty."));
         //validationUserEdit.registerValidator(emailTextField, Validator.createRegexValidator("Invalid email format", "^$|^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", Severity.ERROR));
+        validationUserEdit.registerValidator(roleChoiceBox, Validator.createEmptyValidator("The role must not be empty."));
+        dateOfBirthDatePicker.getEditor().setDisable(true);
         applyButton.disableProperty().bind(validationUserEdit.invalidProperty());
     }
 

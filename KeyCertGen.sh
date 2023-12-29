@@ -33,3 +33,15 @@ openssl x509 -req -in ./Database/ssl/flyway.csr -CA ./Database/ssl/root.crt -CAk
 
 echo "Converting flyway key..."
 openssl pkcs8 -topk8 -outform DER -in ./Database/ssl/flyway.key -out ./Database/ssl/flyway.key.der -nocrypt >/dev/null 2>&1
+
+echo "Generating postgres key..."
+openssl genrsa -out ./Database/ssl/postgres.key 2048 >/dev/null 2>&1
+
+echo "Generating postgres CSR..."
+openssl req -new -key ./Database/ssl/postgres.key -out ./Database/ssl/postgres.csr -config ./cnf/postgres.cnf >/dev/null 2>&1
+
+echo "Generating postgres certificate..."
+openssl x509 -req -in ./Database/ssl/postgres.csr -CA ./Database/ssl/root.crt -CAkey ./Database/ssl/server.key -out ./Database/ssl/postgres.crt -CAcreateserial >/dev/null 2>&1
+
+echo "Converting postgres key..."
+openssl pkcs8 -topk8 -outform DER -in ./Database/ssl/postgres.key -out ./Database/ssl/postgres.key.der -nocrypt >/dev/null 2>&1

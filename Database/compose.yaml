@@ -77,6 +77,9 @@ services:
       - 'pgadmin-data:/var/lib/pgadmin'
       - './pgadmin_conf/servers.json:/pgadmin4/servers.json'
       - './pgadmin_conf/pgpass:/pgadmin4/pgpass'
+      - '../App/ssl/root.crt:/home/pgadmin/.postgresql/root.crt'
+      - './ssl/postgres.crt:/pgadmin4/postgres.crt'
+      - './ssl/postgres.key:/pgadmin4/postgres.key'
     entrypoint:
       - /bin/sh
       - '-c'
@@ -85,6 +88,8 @@ services:
         mkdir -pm 700 /var/lib/pgadmin/storage/${PGADMIN_USER_DIRECTORY} && 
         chown -R pgadmin:root /var/lib/pgadmin/storage/${PGADMIN_USER_DIRECTORY} &&
         cp /pgadmin4/pgpass /var/lib/pgadmin/storage/${PGADMIN_USER_DIRECTORY}/pgpassfile &&
+        cp /pgadmin4/postgres.crt /var/lib/pgadmin/storage/${PGADMIN_USER_DIRECTORY}/postgres.crt &&
+        cp /pgadmin4/postgres.key /var/lib/pgadmin/storage/${PGADMIN_USER_DIRECTORY}/postgres.key &&
         chmod 600 /var/lib/pgadmin/storage/${PGADMIN_USER_DIRECTORY}/pgpassfile &&
         /entrypoint.sh
     networks:

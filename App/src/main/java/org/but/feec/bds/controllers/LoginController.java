@@ -148,14 +148,7 @@ public class LoginController {
         alertDialog.setHeaderText("You were successfully logged in");
         alertDialog.setContentText("Click OK to continue");
 
-        Optional<ButtonType> result = alertDialog.showAndWait();
-
-        if (result.get() == ButtonType.OK) {
-            System.out.println("ok clicked");
-        }
-        else {
-            System.out.println("cancel clicked");
-        }
+        alertDialog.showAndWait();
     }
 
     private void showStandardUserView() {

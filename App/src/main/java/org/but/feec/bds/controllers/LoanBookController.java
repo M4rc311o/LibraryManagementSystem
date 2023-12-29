@@ -71,6 +71,8 @@ public class LoanBookController {
         validationLoanBook = new ValidationSupport();
         validationLoanBook.registerValidator(userIdTextField, Validator.createRegexValidator("Invalid user id format", "^[1-9]\\d*$", Severity.ERROR));
         validationLoanBook.registerValidator(physicalBookIdTextField, Validator.createRegexValidator("Invalid physical book id format", "^[1-9]\\d*$", Severity.ERROR));
+        issueDateDatePicker.getEditor().setDisable(true);
+        issueDateDatePicker.getEditor().setEditable(true);
         applyButton.disableProperty().bind(validationLoanBook.invalidProperty());
     }
 

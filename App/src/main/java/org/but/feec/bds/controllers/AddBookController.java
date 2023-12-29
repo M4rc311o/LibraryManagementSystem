@@ -121,6 +121,11 @@ public class AddBookController {
         validationAddBook.registerValidator(titleTextField, Validator.createEmptyValidator("The title must not be empty"));
         validationAddBook.registerValidator(yearTextField, Validator.createRegexValidator("Invalid year format", "^\\d+$", Severity.ERROR));
         validationAddBook.registerValidator(evaluationTextField, Validator.createRegexValidator("Invalid evaluation format", "^([1-9]+\\d*|0+)(\\.\\d{1,2})?$", Severity.ERROR));
+        validationAddBook.registerValidator(genreChoiceBox, Validator.createEmptyValidator("Genre must not be empty"));
+        validationAddBook.registerValidator(languageChoiceBox, Validator.createEmptyValidator("Language must not be empty"));
+        validationAddBook.registerValidator(bindingChoiceBox, Validator.createEmptyValidator("Binding must not be empty"));
+        validationAddBook.registerValidator(literaryPeriodChoiceBox, Validator.createEmptyValidator("Literary period must not be empty"));
+        validationAddBook.registerValidator(libraryChoiceBox, Validator.createEmptyValidator("Library must not be empty"));
         addButton.disableProperty().bind(validationAddBook.invalidProperty());
     }
 

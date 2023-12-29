@@ -89,6 +89,7 @@ public class ReturnBookController {
         physicalBookIdTextFieldValidator = Validator.createRegexValidator("Invalid physical book id format", "^[1-9]\\d*$", Severity.ERROR);
         validationReturnBook.registerValidator(physicalBookIdTextField, physicalBookIdTextFieldValidator);
         validationReturnBook.registerValidator(feeTextField, Validator.createRegexValidator("Invalid fee format", "^([1-9]+\\d*|0+)(\\.\\d{1,2})?$", Severity.ERROR));
+        validationReturnBook.registerValidator(libraryChoiceBox, Validator.createEmptyValidator("The library must not be empty"));
         applyButton.disableProperty().bind(validationReturnBook.invalidProperty());
     }
 
