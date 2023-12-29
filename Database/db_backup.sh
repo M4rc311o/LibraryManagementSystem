@@ -2,6 +2,7 @@
 
 DB_NAME="library_management_system"
 DB_USER="bds-backup"
+export PGPASSWORD='piGyTaqRy65VlgML3CQ'
 
 BACKUP_DIR="/postgres_backup/"
 FILE_NAME="lms-backup-"$(date "+%Y-%m-%d")

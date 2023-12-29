@@ -1,0 +1,10 @@
+[ req ]
+distinguished_name = req_subj
+prompt = no
+
+[ req_subj ]
+C = CZ
+ST = Czechia
+L = Brno
+O = BPC-BDS
+CN = bds-postgres-db

@@ -102,8 +102,8 @@ services:
       - './flyway:/flyway/sql'
       - './flyway.conf:/flyway/conf/flyway.conf'
       - './ssl/root.crt:/etc/postgres/root.crt'
-      - './ssl/postgres.crt:/etc/postgres/flyway.crt'
-      - './ssl/postgres.key.der:/etc/postgres/flyway.key.der'
+      - './ssl/flyway.crt:/etc/postgres/flyway.crt'
+      - './ssl/flyway.key.der:/etc/postgres/flyway.key.der'
     networks:
       - bds-project-net
 
