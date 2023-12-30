@@ -71,8 +71,10 @@ public class LoanBookController {
         validationLoanBook = new ValidationSupport();
         validationLoanBook.registerValidator(userIdTextField, Validator.createRegexValidator("Invalid user id format", "^[1-9]\\d*$", Severity.ERROR));
         validationLoanBook.registerValidator(physicalBookIdTextField, Validator.createRegexValidator("Invalid physical book id format", "^[1-9]\\d*$", Severity.ERROR));
+        validationLoanBook.registerValidator(issueDateDatePicker, Validator.createEmptyValidator("The issue date must not be empty"));
+        validationLoanBook.registerValidator(dueDateDatePicker, Validator.createEmptyValidator("The due date must not be empty"));
         issueDateDatePicker.getEditor().setDisable(true);
-        issueDateDatePicker.getEditor().setEditable(true);
+        dueDateDatePicker.getEditor().setDisable(true);
         applyButton.disableProperty().bind(validationLoanBook.invalidProperty());
     }
 

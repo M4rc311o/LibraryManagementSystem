@@ -243,6 +243,7 @@ public class StandardUserController {
             stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
             Scene scene = new Scene(fxmlLoader.load(), 407, 440);
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         }
         catch (IOException e) {
@@ -257,13 +258,5 @@ public class StandardUserController {
         alertDialog.setContentText("Click OK to continue");
 
         Optional<ButtonType> result = alertDialog.showAndWait();
-
-        if (result.get() == ButtonType.OK) {
-            System.out.println("ok clicked");
-        }
-        else {
-            System.out.println("cancel clicked");
-        }
-
     }
 }

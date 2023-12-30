@@ -127,6 +127,7 @@ public class LoginController {
             stage.setScene(scene);
 
             stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
+            stage.setResizable(false);
             stage.show();
         }
         catch (IOException e) {
@@ -163,6 +164,7 @@ public class LoginController {
             stageOld.close();
 
             stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
+            stage.setResizable(false);
             stage.show();
         }
         catch (IOException e) {
@@ -182,6 +184,7 @@ public class LoginController {
             stageOld.close();
 
             stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
+            stage.setResizable(false);
             stage.show();
         }
         catch (IOException e) {

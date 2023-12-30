@@ -189,6 +189,7 @@ public class LibrarianController {
                 fxmlLoader.setController(bookRequestEditViewController);
                 Scene scene = new Scene(fxmlLoader.load(), 420, 253);
                 stage.setScene(scene);
+                stage.setResizable(false);
                 stage.show();
             }
             catch (IOException e) {
@@ -233,6 +234,7 @@ public class LibrarianController {
                 fxmlLoader.setController(standardUserDetailedViewController);
                 Scene scene = new Scene(fxmlLoader.load(), 400, 400);
                 stage.setScene(scene);
+                stage.setResizable(false);
                 stage.show();
             }
             catch (IOException e) {
@@ -257,6 +259,7 @@ public class LibrarianController {
                 fxmlLoader.setController(standardUserEditViewController);
                 Scene scene = new Scene(fxmlLoader.load(), 420, 420);
                 stage.setScene(scene);
+                stage.setResizable(false);
                 stage.show();
             }
             catch (IOException e) {
@@ -313,6 +316,7 @@ public class LibrarianController {
             fxmlLoader.setController(loanBookController);
             Scene scene = new Scene(fxmlLoader.load(), 407, 400);
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         }
         catch (IOException e) {
@@ -336,6 +340,7 @@ public class LibrarianController {
             fxmlLoader.setController(returnBookController);
             Scene scene = new Scene(fxmlLoader.load(), 407, 462);
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         }
         catch (IOException e) {
@@ -359,6 +364,7 @@ public class LibrarianController {
             fxmlLoader.setController(bookAddController);
             Scene scene = new Scene(fxmlLoader.load(), 410, 630);
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         }
         catch (IOException e) {
@@ -391,6 +397,7 @@ public class LibrarianController {
             stage.getIcons().add(new Image(App.class.getResourceAsStream("images/lms_logo.png")));
             Scene scene = new Scene(fxmlLoader.load(), 407, 440);
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         }
         catch (IOException e) {
