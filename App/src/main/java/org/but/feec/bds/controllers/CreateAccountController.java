@@ -69,6 +69,7 @@ public class CreateAccountController {
         validationCreateAccount.registerValidator(lastNameTextField, Validator.createEmptyValidator("The last name must not be empty."));
         validationCreateAccount.registerValidator(phoneNumberTextField, Validator.createEmptyValidator("The phone number must not be empty."));
         validationCreateAccount.registerValidator(roleChoiceBox, Validator.createEmptyValidator("The role must not be empty."));
+        validationCreateAccount.registerValidator(dateOfBirthDatePicker, Validator.createEmptyValidator("The birth date must not be empty"));
         dateOfBirthDatePicker.getEditor().setDisable(true);
         createButton.disableProperty().bind(validationCreateAccount.invalidProperty());
     }

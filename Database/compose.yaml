@@ -25,6 +25,7 @@ services:
       - './ssl/root.crt:/etc/postgres/root.crt'
       - './pg_hba.conf:/etc/postgres/pg_hba.conf'
       - './db_backup.sh:/etc/postgres/db_backup.sh'
+      - './db_restore.sh:/etc/postgres/db_restore.sh'
     networks:
       - bds-project-net
     entrypoint:
@@ -36,11 +37,13 @@ services:
         chown postgres:root /etc/postgres/root.crt &&
         chown postgres:root /etc/postgres/pg_hba.conf &&
         chown postgres:root /etc/postgres/db_backup.sh &&
+        chown postgres:root /etc/postgres/db_restore.sh &&
         chmod 600 /etc/postgres/server.key &&
         chmod 600 /etc/postgres/server.crt &&
         chmod 600 /etc/postgres/root.crt &&
         chmod 600 /etc/postgres/pg_hba.conf &&
         chmod 700 /etc/postgres/db_backup.sh &&
+        chmod 700 /etc/postgres/db_restore.sh &&
         (crontab -l 2>/dev/null; echo "0 0 * * * /etc/postgres/db_backup.sh") | crontab - &&
         crond -b &&
         docker-entrypoint.sh postgres
