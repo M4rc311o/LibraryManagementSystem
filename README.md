@@ -1,4 +1,4 @@
-# BPC-BDS-Project
+# Library Management System (LMS)
 <p align="center">
     <img src="/App/src/main/resources/org/but/feec/bds/images/lms_logo.png" width="200">
 </p>
